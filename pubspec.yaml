@@ -76,7 +76,9 @@ flutter:
   assets:
     - assets/logo.jpeg
     - assets/car1.jpeg
+    - assets/car_icon.jpeg
     - assets/img1.jpeg
+    - assets/user_image.jpeg
     - assets/fortuner.jpeg
     - assets/fortuner1.png
     - assets/fortuner2.png

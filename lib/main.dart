@@ -1,68 +1,69 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:kangaroo_customer_app/auth_controller.dart';
-// import 'package:kangaroo_customer_app/car_home_page.dart';
-// import 'package:kangaroo_customer_app/forgot_password_screen.dart';
-// import 'package:kangaroo_customer_app/map_controller.dart';
-// import 'package:kangaroo_customer_app/password_reset_success_screen.dart';
-// import 'package:kangaroo_customer_app/routes.dart';
-// import '../splashscreen.dart';
-// import '/welcome_screen.dart';
-// import '/car_booking_screen.dart';
-// import '/sign_in_page.dart';
-// import '/sign_up.dart';
-// import '/otp_screen.dart';
-// import '/map_screen.dart';
-// import '/home_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kangaroo_customer_app/auth_controller.dart';
+import 'package:kangaroo_customer_app/car_home_page.dart';
+// import 'package:kangaroo_customer_app/car_selection_screen.dart';
+import 'package:kangaroo_customer_app/forgot_password_screen.dart';
+import 'package:kangaroo_customer_app/map_controller.dart';
+import 'package:kangaroo_customer_app/password_reset_success_screen.dart';
+import 'package:kangaroo_customer_app/routes.dart';
+import '../splashscreen.dart';
+import '/welcome_screen.dart';
+import '/car_booking_screen.dart';
+import '/sign_in_page.dart';
+import '/sign_up.dart';
+import '/otp_screen.dart';
+import '/map_screen.dart';
+import '/home_screen.dart';
 
 
-// void main() {
-//   Get.put(AuthController());
-//   Get.lazyPut(() => MapController());
+void main() {
+  Get.put(AuthController());
+  Get.lazyPut(() => MapController());
 
-//   runApp(const MyApp());
-// }
+  runApp(const MyApp());
+}
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return GetMaterialApp(
-//       title: 'Kangaroo Customer App',
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//         visualDensity: VisualDensity.adaptivePlatformDensity,
-//       ),
-//       // initialRoute: '/splash',
-//       initialRoute: '/signin',
-//       getPages: [
-//         GetPage(name: '/splash', page: () => const SplashScreen()),
-//         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
-//         GetPage(name: '/signin', page: () =>  SignInPage()),
-//         GetPage(name: '/signup', page: () => SignUpPage()),
-//         GetPage(name: '/otp', page: () => OTPScreen(phone: Get.arguments)),
-//         GetPage(name: '/home', page: () => HomeScreen()),
-//         GetPage(name: '/booking', page: () => CarBookingScreen()),
-//         GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
-//          GetPage(name: '/map', page: () => MapScreen()), 
-//           GetPage(
-//   name: Routes.passwordResetSuccess,
-//   page: () =>  PasswordResetSuccessScreen(),
-// ),
-//          GetPage(name: Routes.map,page: () => MapScreen(),
-//   binding: BindingsBuilder(() {
-//     Get.lazyPut<MapController>(() => MapController());
-//   }),
-// ),
-//         GetPage(name: '/carHome', page: () => CarHomePage(),
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'Kangaroo Customer App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: '/splash',
+      // initialRoute: '/welcome',
+      getPages: [
+        GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(name: '/welcome', page: () => const WelcomeScreen()),
+        GetPage(name: '/signin', page: () =>  SignInPage()),
+        GetPage(name: '/signup', page: () => SignUpPage()),
+        GetPage(name: '/otp', page: () => OTPScreen(phone: Get.arguments)),
+        GetPage(name: '/home', page: () => HomeScreen()),
+        GetPage(name: '/booking', page: () => CarBookingScreen()),
+        GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
+         GetPage(name: '/map', page: () => MapScreen()), 
+          GetPage(
+  name: Routes.passwordResetSuccess,
+  page: () =>  PasswordResetSuccessScreen(),
+),
+         GetPage(name: Routes.map,page: () => MapScreen(),
+  binding: BindingsBuilder(() {
+    Get.lazyPut<MapController>(() => MapController());
+  }),
+),
+        GetPage(name: '/carHome', page: () => CarHomePage(),
 
-// ),
-//       ],
-//     );
-//   }
-// }
+),
+      ],
+    );
+  }
+}
 
 
 
@@ -534,27 +535,50 @@
 // //paris map
 
 
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kangaroo_customer_app/sign_in_page.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:kangaroo_customer_app/sign_in_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MyApp());
-}
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'My App',
-      initialRoute: '/signin',
-      getPages: [
-        // Define your routes here
-      ],
-      home: SignInPage(), // Or use initialRoute if defined
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetMaterialApp(
+//       title: 'My App',
+//       initialRoute: '/signin',
+//       getPages: [
+//         // Define your routes here
+//       ],
+//       home: SignInPage(), // Or use initialRoute if defined
+//     );
+//   }
+// }
+
+
+// // lib/main.dart
+// import 'package:flutter/material.dart';
+// import '../car_selection_screen.dart';
+
+// void main() {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   runApp(const MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Car Selection Demo',
+//       theme: ThemeData(primarySwatch: Colors.blue),
+//       home: const CarSelectionScreen(),
+//     );
+//   }
+// }
