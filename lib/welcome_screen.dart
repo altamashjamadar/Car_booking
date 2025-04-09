@@ -67,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                onPressed: () => Get.toNamed('/carHome'),
+                onPressed: () => Get.toNamed('/home'),
                 child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   child: Text("Let's Go"),

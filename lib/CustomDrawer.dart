@@ -12,7 +12,8 @@ class CustomDrawer extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.blue),
             child: Text('Kangaroo App', style: TextStyle(color: Colors.white, fontSize: 24)),
           ),
-          ListTile(leading: Icon(Icons.history), title: Text('Your Trips')),
+          ListTile(leading: Icon(Icons.history), title: Text('Your Trips')
+          ),
           ListTile(leading: Icon(Icons.payment), title: Text('Payments')),
           ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
           ListTile(leading: Icon(Icons.support), title: Text('Support')),

@@ -315,7 +315,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController _mapController;
   final Location _location = Location();
-  LatLng _currentPosition = const LatLng(40.7128, -74.0060);
+  LatLng _currentPosition = const LatLng(18.5204, 73.8567);
   final Set<Marker> _markers = {};
   bool _isLoading = true;
   Timer? _timer;
@@ -345,8 +345,8 @@ class _MapScreenState extends State<MapScreen> {
       final currentLocation = await _location.getLocation();
       setState(() {
         _currentPosition = LatLng(
-          currentLocation.latitude ?? 40.7128,
-          currentLocation.longitude ?? -74.0060,
+          currentLocation.latitude ?? 18.5204,
+          currentLocation.longitude ?? 73.8567,
         );
         _markers.add(
           Marker(
@@ -359,7 +359,6 @@ class _MapScreenState extends State<MapScreen> {
         _isLoading = false;
       });
 
-      // Start updating nearby markers every 10 seconds
       _timer = Timer.periodic(const Duration(seconds: 10), (_) => _addNearbyLocations());
 
       // Initial nearby locations
@@ -373,9 +372,9 @@ class _MapScreenState extends State<MapScreen> {
 
   void _addNearbyLocations() {
     final Random random = Random();
-    final List<Marker> nearby = List.generate(5, (index) {
-      final double offsetLat = (random.nextDouble() - 0.5) / 1000;
-      final double offsetLng = (random.nextDouble() - 0.5) / 1000;
+    final List<Marker> nearby = List.generate(10, (index) {
+      final double offsetLat = (random.nextDouble() - 0.8) / 1000;
+      final double offsetLng = (random.nextDouble() - 0.1) / 1000;
       final LatLng newPosition = LatLng(
         _currentPosition.latitude + offsetLat,
         _currentPosition.longitude + offsetLng,
@@ -422,23 +421,7 @@ class _MapScreenState extends State<MapScreen> {
               myLocationButtonEnabled: true,
             ),
             
-            Positioned(
-            top: 50,
-            left: 20,
-            child: Material(
-              elevation: 4,
-              shape: const CircleBorder(),
-              color: Colors.white,
-              child: IconButton(
-                icon: const Icon(Icons.menu, color: Colors.black),
-                onPressed: () {
-                  // Add menu functionality if needed
-                },
-              ),
-            ),
-          ),
-
-          // Bottom Panel with Search and Nearby Locations
+          
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -473,6 +456,7 @@ class _MapScreenState extends State<MapScreen> {
                   InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const YourRouteScreen()),
+                      
 );
                     },
                     child: Container(

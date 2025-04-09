@@ -315,7 +315,7 @@ class _CarHomePageState extends State<CarHomePage> {
                       const SizedBox(height: 4),
     
                       const Text(
-                        '\$4,253 Earned',
+                        '\$4,253',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
@@ -347,16 +347,15 @@ class _CarHomePageState extends State<CarHomePage> {
                     
                     child: GoogleMap(
                       initialCameraPosition: const CameraPosition(
-                        target: LatLng(40.7580, -73.9855),
+                        target: LatLng(18.5204, 73.8567),
                         zoom: 14,
-                        
-                      ),
+                         ),
                       // onMapCreated: (controller) => _mapController = controller,
                       
                       markers: {
                         Marker(
                           markerId: const MarkerId('nearestCar'),
-                          position: const LatLng(40.7580, -73.9855),
+                          position: const LatLng(18.5204, 73.8567),
                            onTap: () => Get.toNamed(Routes.map),                             
                         ),
                       },
@@ -539,18 +538,18 @@ class _CarHomePageState extends State<CarHomePage> {
           ),
         ),
         LocationCard(
-          name: 'Times Square',
-          address: 'Broadway 10012, New York',
+          name: 'Alacritys',
+          address: 'lane no 5 10012, New York',
           onTap: () => Get.toNamed(Routes.map),
         ),
         LocationCard(
-          name: 'Park Avenue',
-          address: 'Park Ave, New York',
+          name: 'Gangotri Park ',
+          address: 'Dr. Babasaheb Ambedkar Rd',
           onTap: () => Get.toNamed(Routes.map),
         ),
         LocationCard(
-          name: '5th Avenue',
-          address: '5th Ave, New York',
+          name: 'Pune SEO Company',
+          address: 'Amar Srushti Rd',
           onTap: () => Get.toNamed(Routes.map),
         ),
       ],
@@ -574,6 +573,7 @@ class _CarHomePageState extends State<CarHomePage> {
           ),
           Expanded(
             child: ListView(
+              scrollDirection: Axis.horizontal,
               children: const [
                 CarListItem(
                   carName: 'Audi R8',

@@ -1,24 +1,5 @@
-// import 'package:flutter/material.dart';
-
-// class SearchLocationScreen extends StatelessWidget {
-//   const SearchLocationScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text('Search Location')),
-//       body: Center(
-//         child: Text(
-//           'Pickup & Drop Off Search Page',
-//           style: Theme.of(context).textTheme.titleLarge,
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
 import 'package:flutter/material.dart';
+import 'package:kangaroo_customer_app/car_selection_screen.dart';
 
 class YourRouteScreen extends StatefulWidget {
   const YourRouteScreen({Key? key}) : super(key: key);
@@ -30,9 +11,9 @@ class YourRouteScreen extends StatefulWidget {
 class _YourRouteScreenState extends State<YourRouteScreen> {
   // Controllers for the text fields
   final TextEditingController _pickupController =
-      TextEditingController(text: 'Current location');
+      TextEditingController(text: '');
   final TextEditingController _destinationController =
-      TextEditingController(text: 'Enter Destination');
+      TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -161,6 +142,13 @@ class _YourRouteScreenState extends State<YourRouteScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               children: const [
                 SuggestedLocation(
+//                            onTap: (){
+//                       Navigator.push(context, MaterialPageRoute(builder: (context) => const YourRouteScreen()),
+                      
+// );
+//                     },
+                  // onTap: CarSelectionScreen,
+                  
                   title: ' Alacritys',
                   address: 'lane no 4,Phase 1, Indraprashtha Society, Hadapsar, Pune,Maharastra',
                 ),
@@ -206,19 +194,21 @@ class SuggestedLocation extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           color: Colors.grey[200],
         ),
-        child: const Icon(Icons.location_on, color: Colors.red),
+        child: const Icon(Icons.location_on, color: Colors.blue),
       ),
       title: Text(
         title,
         style: const TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.red,
+          color: Colors.black,
         ),
       ),
       subtitle: Text(address),
       onTap: () {
         // Handle location item tap
         // e.g., set it as the destination, or dismiss the screen
+            // onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const CarSelectionScreen()),);                 // };
       },
     );
   }
