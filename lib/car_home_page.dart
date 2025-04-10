@@ -579,36 +579,43 @@ class _CarHomePageState extends State<CarHomePage> {
                   carName: 'Audi R8',
                   price: '\$1120 / day',
                   timeAway: '21 min away',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
                 CarListItem(
                   carName: 'Mercedes',
                   price: '\$2,254 / day',
                   timeAway: '21 min away',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
                 CarListItem(
                   carName: 'Audi S5',
                   price: '\$2,810 / day',
                   timeAway: '21 min away',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
                 CarListItem(
                   carName: 'Alfa Romeo F4',
                   price: '\$2,810 / day',
                   timeAway: '21 min away',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
                 CarListItem(
                   carName: 'Limousine',
                   price: '\$2,810 / day',
                   timeAway: '21 min away',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
                 CarListItem(
                   carName: 'Bently',
                   price: '\$2,810 / day',
                   timeAway: '21 min away',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
                 CarListItem(
                   carName: '2 min away',
                   price: '',
                   timeAway: '',
+                  imagePath: 'assets/cars/audi R8.jpeg',
                 ),
               ],
             ),
@@ -742,12 +749,14 @@ class CarListItem extends StatelessWidget {
   final String carName;
   final String price;
   final String timeAway;
+  final String imagePath;
 
   const CarListItem({
     super.key,
     required this.carName,
     required this.price,
     required this.timeAway,
+    required this.imagePath,
   });
 
   @override

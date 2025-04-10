@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kangaroo_customer_app/all_cars_search.dart';
 import 'package:kangaroo_customer_app/auth_controller.dart';
 import 'package:kangaroo_customer_app/car_home_page.dart';
+import 'package:kangaroo_customer_app/car_selection_screen.dart';
 // import 'package:kangaroo_customer_app/car_selection_screen.dart';
 import 'package:kangaroo_customer_app/forgot_password_screen.dart';
+import 'package:kangaroo_customer_app/location_screen.dart';
 import 'package:kangaroo_customer_app/map_controller.dart';
 import 'package:kangaroo_customer_app/password_reset_success_screen.dart';
 import 'package:kangaroo_customer_app/routes.dart';
@@ -37,7 +40,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/splash',
-      // initialRoute: '/map',
+      // initialRoute: '/car-selection',
+      // initialRoute: '/all-car-selection',
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),
         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
@@ -48,16 +52,16 @@ class MyApp extends StatelessWidget {
         // GetPage(name: '/booking', page: () => CarBookingScreen()),
         GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
          GetPage(name: '/map', page: () => MapScreen()), 
-          GetPage(
-  name: Routes.passwordResetSuccess,
-  page: () =>  PasswordResetSuccessScreen(),
-),
+         GetPage(name: '/your-route', page: () => YourRouteScreen()), 
+         GetPage(name: '/car-selection', page: () => CarSelectionScreen()), 
+          GetPage(name: '/passwordReset',page: () =>  PasswordResetSuccessScreen(),),
          GetPage(name: Routes.map,page: () => MapScreen(),
   binding: BindingsBuilder(() {
     Get.lazyPut<MapController>(() => MapController());
   }),
 ),
         // GetPage(name: '/carHome', page: () => CarHomePage(),),
+        GetPage(name: '/all-car-selection', page: () => AllCarsSearch()), 
       ],
     );
   }
@@ -345,6 +349,325 @@ class MyApp extends StatelessWidget {
 //         primarySwatch: Colors.blue,
 //       ),
 //       home: const CarSelectionScreen(),
+//     );
+//   }
+// }
+
+
+///all cars search
+// import 'dart:async';
+// import 'package:flutter/material.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:kangaroo_customer_app/all_cars_search.dart';
+
+// void main() => runApp(const MyApp());
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Car Selection Example',
+//       debugShowCheckedModeBanner: false,
+//       home: const AllCarsSearch(),
+//     );
+//   }
+// }
+
+// class CarSelectionScreen extends StatefulWidget {
+//   const CarSelectionScreen({Key? key}) : super(key: key);
+
+//   @override
+//   _CarSelectionScreenState createState() => _CarSelectionScreenState();
+// }
+
+// class _CarSelectionScreenState extends State<CarSelectionScreen> {
+//   final Completer<GoogleMapController> _mapController = Completer();
+//   final Set<Marker> _markers = {};
+//   final Set<Polyline> _polylines = {};
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     // Define locations:
+//     final currentLocation = const LatLng(18.5204, 73.8567);
+//     final swargateBusStand = const LatLng(18.5018, 73.8636);
+
+//     // Add markers:
+//     _markers.addAll([
+//       Marker(
+//         markerId: const MarkerId('current_location'),
+//         position: currentLocation,
+//         infoWindow: const InfoWindow(title: 'Current Location'),
+//       ),
+//       Marker(
+//         markerId: const MarkerId('swargate_bus_stand'),
+//         position: swargateBusStand,
+//         infoWindow: const InfoWindow(title: 'Swargate Bus Stand'),
+//       ),
+//     ]);
+
+//     // Add polyline:
+//     _polylines.add(
+//       Polyline(
+//         polylineId: const PolylineId('route'),
+//         color: Colors.orange,
+//         width: 5,
+//         points: [currentLocation, swargateBusStand],
+//       ),
+//     );
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       // You can wrap the body with SafeArea if needed.
+//       body: Stack(
+//         children: [
+//           // Google Map as background:
+//           GoogleMap(
+//             initialCameraPosition: const CameraPosition(
+//               target: LatLng(18.5204, 73.8567),
+//               zoom: 14,
+//             ),
+//             markers: _markers,
+//             polylines: _polylines,
+//             onMapCreated: (controller) => _mapController.complete(controller),
+//             myLocationEnabled: true,
+//             myLocationButtonEnabled: true,
+//           ),
+//           // Top container showing current selected location.
+//           Positioned(
+//             top: 16,
+//             left: 16,
+//             right: 16,
+//             child: SafeArea(
+//               child: Container(
+//                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+//                 decoration: BoxDecoration(
+//                   color: Colors.white,
+//                   borderRadius: BorderRadius.circular(24),
+//                   boxShadow: const [
+//                     BoxShadow(color: Colors.black12, blurRadius: 8),
+//                   ],
+//                 ),
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [
+//                     const Icon(Icons.location_on, color: Colors.blue),
+//                     const SizedBox(width: 8),
+//                     Expanded(
+//                       child: Text(
+//                         'Swargate Bus Stand',
+//                         textAlign: TextAlign.center,
+//                         style: const TextStyle(
+//                           fontWeight: FontWeight.bold,
+//                           fontSize: 16,
+//                         ),
+//                       ),
+//                     ),
+//                     const Icon(Icons.keyboard_arrow_down),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//           // Bottom panel with search field, car list, and "View all".
+//           Align(
+//             alignment: Alignment.bottomCenter,
+//             child: _buildBottomPanel(context),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget _buildBottomPanel(BuildContext context) {
+//     final screenHeight = MediaQuery.of(context).size.height;
+
+//     return Container(
+//       height: screenHeight * 0.40,
+//       // margin: const EdgeInsets.only(bottom: 16), // space at the bottom
+//       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+//       decoration: const BoxDecoration(
+//         color: Colors.white,
+//         borderRadius: BorderRadius.only(
+//           topLeft: Radius.circular(24.0),
+//           topRight: Radius.circular(24.0),
+//         ),
+//       ),
+//       child: Column(
+//         children: [
+//           // Drag handle indicator
+//           Container(
+//             width: 40,
+//             height: 5,
+//             margin: const EdgeInsets.symmetric(vertical: 8),
+//             decoration: BoxDecoration(
+//               color: Colors.grey[300],
+//               borderRadius: BorderRadius.circular(2.5),
+//             ),
+//           ),
+//           // Search field
+//           TextField(
+//             decoration: InputDecoration(
+//               hintText: 'Search car',
+//               prefixIcon: const Icon(Icons.search),
+//               border: OutlineInputBorder(
+//                 borderRadius: BorderRadius.circular(12.0),
+//               ),
+//             ),
+//           ),
+//           const SizedBox(height: 16),
+//           // Header row for the car list
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: const [
+//               Text(
+//                 'Pick a car',
+//                 style: TextStyle(
+//                   fontSize: 18,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ),
+//             ],
+//           ),
+//           const SizedBox(height: 12),
+//           // Horizontal list of car items
+//           SizedBox(
+//             height: 140, // fixed height for the list
+//             child: ListView(
+//               scrollDirection: Axis.horizontal,
+//               physics: const BouncingScrollPhysics(),
+//               children: [
+//                 CarListItem(
+//                   carName: 'Audi R8',
+//                   price: '\$1,120/day',
+//                   // timeAway: '1 min away',
+//                   imagePath: 'assets/cars/audi R8.jpeg',
+//                 ),
+//                 CarListItem(
+//                   carName: 'Mercedes',
+//                   price: '\$2,254/day',
+//                   // timeAway: '2 min away',
+//                   imagePath: 'assets/cars/Mercedes.jpeg',
+//                 ),
+//                 CarListItem(
+//                   carName: 'Audi S5',
+//                   price: '\$2,810/day',
+//                   // timeAway: '5 min away',
+//                   imagePath: 'assets/cars/Audi_S5.jpeg',
+//                 ),
+//               ],
+//             ),
+//           ),
+//           const SizedBox(height: 8),
+//           // "View all" text
+//           InkWell(
+//             // Navigator.push(context, MaterialPageRoute(builder: (context) => const YourRouteScreen()),
+                      
+// // );
+//             onTap: (){
+//               Navigator.push(context, MaterialPageRoute(builder: (context)=> const AllCarsSearch(),));
+//             },
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: const [
+//                 Text(
+//                   'View all',
+//                   style: TextStyle(color: Colors.blue),
+//                 ),
+//               ],
+//             ),
+//           ),
+//           const SizedBox(height: 8),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+// class CarListItem extends StatelessWidget {
+//   final String carName;
+//   final String price;
+//   // final String timeAway;
+//   final String imagePath;
+
+//   const CarListItem({
+//     Key? key,
+//     required this.carName,
+//     required this.price,
+//     // required this.timeAway,
+//     required this.imagePath,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: 140,
+//       margin: const EdgeInsets.symmetric(horizontal: 8),
+//       decoration: BoxDecoration(
+//         color: Colors.white, // white card
+//         borderRadius: BorderRadius.circular(12),
+//         boxShadow: [
+//           BoxShadow(
+//             color: Colors.black12.withOpacity(0.05),
+//             blurRadius: 6,
+//             offset: const Offset(0, 3),
+//           ),
+//         ],
+//       ),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.stretch,
+//         children: [
+//           // Car image section
+//           ClipRRect(
+//             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+//             child: Image.asset(
+//               imagePath,
+//               height: 80,
+//               fit: BoxFit.cover,
+//             ),
+//           ),
+//           const SizedBox(height: 8),
+//           // Car details section
+//           Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 4),
+//             child: Column(
+//               children: [
+//                 Text(
+//                   carName,
+//                   style: const TextStyle(
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 14,
+//                   ),
+//                   textAlign: TextAlign.center,
+//                 ),
+//                 const SizedBox(height: 4),
+//                 Text(
+//                   price,
+//                   style: const TextStyle(
+//                     color: Colors.black54,
+//                     fontSize: 13,
+//                   ),
+//                   textAlign: TextAlign.center,
+//                 ),
+//                 // const SizedBox(height: 4),
+//                 // Text(
+//                 //   timeAway,
+//                 //   style: const TextStyle(
+//                 //     color: Colors.grey,
+//                 //     fontSize: 12,
+//                 //   ),
+//                 //   textAlign: TextAlign.center,
+//                 // ),
+//                 // const SizedBox(height: 8),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
 //     );
 //   }
 // }

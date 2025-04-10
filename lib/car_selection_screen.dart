@@ -711,6 +711,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kangaroo_customer_app/all_cars_search.dart';
 
 class CarSelectionScreen extends StatefulWidget {
   const CarSelectionScreen({Key? key}) : super(key: key);
@@ -727,8 +728,9 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
   @override
   void initState() {
     super.initState();
-    final currentLocation = const LatLng(40.785091, -73.968285);
-    final centralPark = const LatLng(40.785091, -73.968285);
+    // final currentLocation = const LatLng(40.785091, -73.968285);
+    final currentLocation = const LatLng(18.5204, 73.8567);
+    final SwargateBusStand = const LatLng(18.5018, 73.8636);
 
     _markers.addAll([
       Marker(
@@ -738,8 +740,8 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
       ),
       Marker(
         markerId: const MarkerId('central_park'),
-        position: centralPark,
-        infoWindow: const InfoWindow(title: 'Central Park'),
+        position: SwargateBusStand,
+        infoWindow: const InfoWindow(title: 'Swargate '),
       ),
     ]);
 
@@ -748,7 +750,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
         polylineId: const PolylineId('route'),
         color: Colors.orange,
         width: 5,
-        points: [currentLocation, centralPark],
+        points: [currentLocation, SwargateBusStand],
       ),
     );
   }
@@ -761,7 +763,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
           // Google Map
           GoogleMap(
             initialCameraPosition: const CameraPosition(
-              target: LatLng(40.785091, -73.968285),
+              target: LatLng(18.5204, 73.8567),
               zoom: 14,
             ),
             markers: _markers,
@@ -772,7 +774,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
           ),
           // Top container to show selected location.
           Positioned(
-            top: 60,
+            top: 16,
             left: 20,
             right: 20,
             child: Container(
@@ -786,11 +788,11 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.location_on, color: Colors.red),
+                  const Icon(Icons.location_on, color: Colors.blue),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'Central Park',
+                      'SwarGate Bus Stand',
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
@@ -811,8 +813,10 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
 
   Widget _buildBottomPanel(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    return Container(
+    return 
+    Container(
       height: screenHeight * 0.45,
+      //  margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -844,10 +848,10 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
           const SizedBox(height: 16),
           // Header row for the car list
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text('Pick a car', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              Text('View all', style: TextStyle(color: Colors.blue)),
+              // Text('View all', style: TextStyle(color: Colors.blue)),
             ],
           ),
           const SizedBox(height: 8),
@@ -857,15 +861,30 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
               children:  [
-                CarListItem(carName: 'Audi R8', price: '\$1,120/day', timeAway: '1 min away'),
-                CarListItem(carName: 'Mercedes', price: '\$2,254/day', timeAway: '2 min away'),
-                CarListItem(carName: 'Audi S5', price: '\$2,810/day', timeAway: '5 min away'),
-                CarListItem(carName: 'Alfa Romeo F4', price: '\$2,810/day', timeAway: '5 min away'),
-                CarListItem(carName: 'Limousine', price: '\$2,810/day', timeAway: '10 min away'),
-                CarListItem(carName: 'Bentley', price: '\$2,810/day', timeAway: '12 min away'),
+                CarListItem(carName: 'Audi R8', price: '\$1,120/day', timeAway: '1 min away',imagePath: 'assets/cars/audi R8.jpeg'),
+                CarListItem(carName: 'Mercedes', price: '\$2,254/day', timeAway: '2 min away',imagePath: 'assets/cars/Mercedes.jpeg'),
+                CarListItem(carName: 'Audi S5', price: '\$2,810/day', timeAway: '5 min away',imagePath: 'assets/cars/Audi_S5.jpeg'),
+                // CarListItem(carName: 'Alfa Romeo F4', price: '\$2,810/day', timeAway: '5 min away',imagePath: 'assets/cars/Alfa_Romeo_F4.jpeg'),
+                // CarListItem(carName: 'Limousine', price: '\$2,810/day', timeAway: '10 min away',imagePath: 'assets/cars/Limousine.jpeg'),
+                // CarListItem(carName: 'Bentley', price: '\$2,810/day', timeAway: '12 min away',imagePath: 'assets/cars/Bentley.jpeg'),
               ],
             ),
           ),
+          const SizedBox(height: 8,),
+          InkWell(
+
+             onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const AllCarsSearch(),));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                // Text('See all', style: TextStyle(fontSize: 18)),
+                Text('View all', style: TextStyle(color: Colors.blue)),
+              ],
+            ),
+          ),
+                    const SizedBox(height: 16), 
         ],
       ),
     );
@@ -876,12 +895,14 @@ class CarListItem extends StatelessWidget {
   final String carName;
   final String price;
   final String timeAway;
+  final String imagePath;
 
   const CarListItem({
     Key? key,
     required this.carName,
     required this.price,
     required this.timeAway,
+     required this.imagePath,
   }) : super(key: key);
 
   @override
@@ -898,11 +919,13 @@ class CarListItem extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+             Image.asset(imagePath, height: 60, fit: BoxFit.contain),
             Text(carName, style: const TextStyle(fontWeight: FontWeight.bold), textAlign: TextAlign.center),
             const SizedBox(height: 4),
             Text(price, textAlign: TextAlign.center),
             const SizedBox(height: 4),
             Text(timeAway, textAlign: TextAlign.center),
+
           ],
         ),
       ),
