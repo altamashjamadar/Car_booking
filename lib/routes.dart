@@ -9,4 +9,10 @@ class Routes {
   static const carHome = '/car-home';
   static const carSelection = '/car-selection';
   static const map = '/map';
+  static const settings = '/SettingsScreen';
+  static const login = '/signin';
+  static const rides = '/ride';
+  static const payment = '/Payment';
+  static const booking = '/Booking';
+    static const savedPlaces = '/savedPlaces';
 }

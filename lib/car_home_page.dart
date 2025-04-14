@@ -50,16 +50,16 @@ class _CarHomePageState extends State<CarHomePage> {
         ],
       ),
       body: _buildBody(),
-      bottomNavigationBar: BottomNavigationBar(
-  backgroundColor: Colors.amber,       items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
-          BottomNavigationBarItem(icon: Icon(Icons.car_rental), label: 'Car '),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search car '),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+  //     bottomNavigationBar: BottomNavigationBar(
+  // backgroundColor: Colors.amber,       items: const [
+  //         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+  //         BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
+  //         BottomNavigationBarItem(icon: Icon(Icons.car_rental), label: 'Car '),
+  //         BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search car '),
+  //       ],
+  //       currentIndex: _selectedIndex,
+  //       onTap: _onItemTapped,
+  //     ),
       drawer: Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -100,28 +100,28 @@ class _CarHomePageState extends State<CarHomePage> {
             title: Text('Your Rides'),
             onTap: () {
               // Navigate to rides page
-              // Get.toNamed(Routes.rides);
+              Get.toNamed(Routes.rides);
             },
           ),
           ListTile(
             leading: Icon(Icons.payment),
             title: Text('Payment Methods'),
             onTap: () {
-              // Get.toNamed(Routes.payment);
+              Get.toNamed(Routes.payment);
             },
           ),
           ListTile(
             leading: Icon(Icons.location_on),
             title: Text('Saved Places'),
             onTap: () {
-              // Get.toNamed(Routes.savedPlaces);
+              Get.toNamed(Routes.savedPlaces);
             },
           ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () {
-              // Get.toNamed(Routes.settings);
+              Get.toNamed(Routes.settings);
             },
           ),
           ListTile(
@@ -129,7 +129,7 @@ class _CarHomePageState extends State<CarHomePage> {
             title: Text('Logout'),
             onTap: () {
               // Add your logout logic
-              // Get.offAllNamed(Routes.login);
+              Get.offAllNamed(Routes.login);
             },
           ),
         ],

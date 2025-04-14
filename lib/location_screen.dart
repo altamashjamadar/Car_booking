@@ -207,8 +207,8 @@ class SuggestedLocation extends StatelessWidget {
       onTap: () {
         // Handle location item tap
         // e.g., set it as the destination, or dismiss the screen
-            // onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const CarSelectionScreen()),);                 // };
+            // onTap: (){R
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => const CarSelectionScreen()),);                 // };
       },
     );
   }

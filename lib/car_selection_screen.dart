@@ -729,8 +729,8 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
   void initState() {
     super.initState();
     // final currentLocation = const LatLng(40.785091, -73.968285);
-    final currentLocation = const LatLng(18.5204, 73.8567);
-    final SwargateBusStand = const LatLng(18.5018, 73.8636);
+    final currentLocation = const LatLng(18.500115, 73.949802);
+    final AmanoraMall = const LatLng(18.519280, 73.933);
 
     _markers.addAll([
       Marker(
@@ -739,9 +739,9 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
         infoWindow: const InfoWindow(title: 'Current Location'),
       ),
       Marker(
-        markerId: const MarkerId('central_park'),
-        position: SwargateBusStand,
-        infoWindow: const InfoWindow(title: 'Swargate '),
+        markerId: const MarkerId('gangotri_park'),
+        position: AmanoraMall,
+        infoWindow: const InfoWindow(title: 'Amanora Mall '),
       ),
     ]);
 
@@ -750,7 +750,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
         polylineId: const PolylineId('route'),
         color: Colors.orange,
         width: 5,
-        points: [currentLocation, SwargateBusStand],
+        points: [currentLocation, AmanoraMall],
       ),
     );
   }
@@ -763,7 +763,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
           // Google Map
           GoogleMap(
             initialCameraPosition: const CameraPosition(
-              target: LatLng(18.5204, 73.8567),
+              target: LatLng(18.500115, 73.949802),
               zoom: 14,
             ),
             markers: _markers,
@@ -792,7 +792,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'SwarGate Bus Stand',
+                      'Amanora Mall',
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
