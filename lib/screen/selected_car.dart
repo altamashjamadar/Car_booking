@@ -160,15 +160,15 @@ class _SelectedCarState extends State<SelectedCar> {
                   //   style:TextStyle(fontSize: 14, color: Colors.grey[600])),
                   // const SizedBox(height: 4),
                   Text(
-                    "Number Plate"+car.numberPlate,
+                    "Number Plate :"+car.numberPlate,
                      style:TextStyle(fontSize: 14, color: Colors.grey[600])),
                   const SizedBox(height: 4),
                   Text(
-                    "Car Model"+car.model,
+                    "Car Model :"+car.model,
                      style:TextStyle(fontSize: 14, color: Colors.grey[600])),
                   const SizedBox(height: 4),
                   Text(
-                    "Car Seats"+car.seat,
+                    "Car Seats :"+car.seat,
                     style:TextStyle(fontSize: 14, color: Colors.grey[600])),
                   
                   const SizedBox(height: 4),
@@ -208,21 +208,18 @@ class _SelectedCarState extends State<SelectedCar> {
     Get.toNamed(Routes.driver);
   },
   style: ElevatedButton.styleFrom(
-    foregroundColor: Colors.black87, backgroundColor: Colors.amber[200], 
+   backgroundColor: Colors.amber[200],
     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
-    ),
-  ),
+ ),
   child: Text(
     "Price: ${car.price}    Confirm Car",
     style: const TextStyle(
       fontSize: 16,
+       color: Colors.black,
       fontWeight: FontWeight.bold,
     ),
   ),
 )
-
         ],
       ),
     );

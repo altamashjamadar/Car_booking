@@ -9,6 +9,7 @@ class SettingsScreen extends StatelessWidget {
     const String userEmail = 'john.doe@example.com';
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Settings'),
         centerTitle: true,
@@ -17,77 +18,78 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         children: [
           
-          Container(
-            color: Colors.grey[200],
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-            child: Row(
-              children: [
+          // Container(
+          //   color: Colors.grey[200],
+          //   padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+          //   child:
+          //    Row(
+          //     children: [
                 
-                const CircleAvatar(
-                  radius: 35,
-                  backgroundImage: AssetImage('assets/images/profile.jpg'),
-                ),
-                const SizedBox(width: 16),
+          //       const CircleAvatar(
+          //         radius: 35,
+          //         backgroundImage: AssetImage('assets/images/profile.jpg'),
+          //       ),
+          //       const SizedBox(width: 16),
             
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        userName,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        userEmail,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      GestureDetector(
+          //       Expanded(
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             Text(
+          //               userName,
+          //               style: const TextStyle(
+          //                 fontSize: 18,
+          //                 fontWeight: FontWeight.bold,
+          //               ),
+          //             ),
+          //             const SizedBox(height: 4),
+          //             Text(
+          //               userEmail,
+          //               style: const TextStyle(
+          //                 fontSize: 14,
+          //                 color: Colors.grey,
+          //               ),
+          //             ),
+          //             const SizedBox(height: 4),
+          //             GestureDetector(
                         
-                        child: const Text(
-                          'View profile',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+          //               child: const Text(
+          //                 'View profile',
+          //                 style: TextStyle(
+          //                   fontSize: 14,
+          //                   color: Colors.blue,
+          //                 ),
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           const Divider(height: 1),
           // Settings Options
-          SettingOption(
-            icon: Icons.history,
-            title: 'Ride History',
-            onTap: () {
-              // to Ride History page
-            },
-          ),
-          SettingOption(
-            icon: Icons.payment,
-            title: 'Payments',
-            onTap: () {
-              //   to Payments page
-            },
-          ),
-          SettingOption(
-            icon: Icons.location_on,
-            title: 'Saved Places',
-            onTap: () {
-              //  to Saved Places page
-            },
-          ),
+          // SettingOption(
+          //   icon: Icons.history,
+          //   title: 'Ride History',
+          //   onTap: () {
+          //     // to Ride History page
+          //   },
+          // ),
+          // SettingOption(
+          //   icon: Icons.payment,
+          //   title: 'Payments',
+          //   onTap: () {
+          //     //   to Payments page
+          //   },
+          // ),
+          // SettingOption(
+          //   icon: Icons.location_on,
+          //   title: 'Saved Places',
+          //   onTap: () {
+          //     //  to Saved Places page
+          //   },
+          // ),
           SettingOption(
             icon: Icons.settings,
             title: 'App Settings',

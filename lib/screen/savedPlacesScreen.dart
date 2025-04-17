@@ -29,6 +29,7 @@ class SavedPlacesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Saved Places'),
         centerTitle: true,
@@ -43,11 +44,11 @@ class SavedPlacesScreen extends StatelessWidget {
       ),
       // Floating action button for adding a new saved place.
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.amber,
         onPressed: () {
           // Add navigation or functionality for adding a new saved place.
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.white,),
       ),
     );
   }
@@ -76,6 +77,7 @@ class SavedPlaceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color:Colors.amber,
       elevation: 2,
       margin: const EdgeInsets.only(bottom: 16),
       shape: RoundedRectangleBorder(

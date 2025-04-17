@@ -43,6 +43,7 @@ class YourRidesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Your Rides'),
         centerTitle: true,
@@ -71,6 +72,7 @@ class RideHistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.amber,
       elevation: 2,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

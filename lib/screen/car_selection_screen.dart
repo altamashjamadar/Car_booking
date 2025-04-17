@@ -29,7 +29,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
         infoWindow: const InfoWindow(title: 'Current Location'),
       ),
       Marker(
-        markerId: const MarkerId('gangotri_park'),
+        markerId: const MarkerId('amanora_mall'),
         position: AmanoraMall,
         infoWindow: const InfoWindow(title: 'Amanora Mall '),
       ),
@@ -122,13 +122,13 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
               borderRadius: BorderRadius.circular(2.5),
             ),
           ),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Search car',
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-            ),
-          ),
+          // TextField(
+          //   decoration: InputDecoration(
+          //     hintText: 'Search car',
+          //     prefixIcon: const Icon(Icons.search),
+          //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+          //   ),
+          // ),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -137,7 +137,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
 
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
     
           Expanded(
             child: ListView(
@@ -153,7 +153,7 @@ class _CarSelectionScreenState extends State<CarSelectionScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 8,),
+          const SizedBox(height: 16,),
           InkWell(
 
              onTap: (){

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/auth_controller.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPScreen extends StatelessWidget {
   final String phone;
@@ -16,7 +17,9 @@ class OTPScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text('OTP Verification'),
         centerTitle: true,
       ),
@@ -68,7 +71,9 @@ class OTPScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
+                      
                       style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber,
                         padding: const EdgeInsets.symmetric(vertical: 15),
                       ),
                       onPressed: () {
@@ -78,7 +83,10 @@ class OTPScreen extends StatelessWidget {
                       },
                       child: const Text(
                         'VERIFY OTP',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -88,13 +96,21 @@ class OTPScreen extends StatelessWidget {
                       onPressed: () {
                         authController.sendOTP();
                       },
-                      child: const Text('Resend OTP'),
+                      child: const Text('Resend OTP',
+                      style: TextStyle(
+                        color: Colors.black54,
+                      ),
+                      ),
                     ),
                   ),
                   Center(
                     child: TextButton(
                       onPressed: () => Get.back(),
-                      child: const Text('Change Phone Number'),
+                      child: const Text(
+                        'Change Phone Number',
+                      style: TextStyle(
+                        color: Colors.black54,
+                      ),),
                     ),
                   ),
                   if (kDebugMode) ...[

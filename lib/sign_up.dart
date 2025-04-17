@@ -12,7 +12,9 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            backgroundColor: Colors.white,
       appBar: AppBar(
+              backgroundColor: Colors.white,
         title: const Text('Sign Up'),
         centerTitle: true,
       ),
@@ -122,7 +124,9 @@ class SignUpPage extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
+                      
                       style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.amber,
                         padding: const EdgeInsets.symmetric(vertical: 15),
                       ),
                       onPressed: () async {
@@ -136,7 +140,10 @@ class SignUpPage extends StatelessWidget {
                       },
                       child: const Text(
                         'SIGN UP',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,
+                        color: Colors.black,
+                        ),
+                        
                       ),
                     ),
                   ),

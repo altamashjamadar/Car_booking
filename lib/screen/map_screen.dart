@@ -74,8 +74,8 @@ class _MapScreenState extends State<MapScreen> {
   void _addNearbyLocations() {
     final Random random = Random();
     final List<Marker> nearby = List.generate(10, (index) {
-      final double offsetLat = (random.nextDouble() - 0.8) / 1000;
-      final double offsetLng = (random.nextDouble() - 0.1) / 1000;
+      final double offsetLat = (random.nextDouble() - 0.8) / 100;
+      final double offsetLng = (random.nextDouble() - 0.1) / 100;
       final LatLng newPosition = LatLng(
         _currentPosition.latitude + offsetLat,
         _currentPosition.longitude + offsetLng,
@@ -176,9 +176,11 @@ class _MapScreenState extends State<MapScreen> {
                             ),
                           ),
                           CircleAvatar(
-                            backgroundImage: NetworkImage(
-                              'https://storage.googleapis.com/a1aa/image/TDHTYnXayCIm_3ssh98iec3cSY2agCCW6rDp5aSCwHM.jpg',
-                            ),
+                            backgroundImage: 
+                            // NetworkImage(
+                            //   'https://storage.googleapis.com/a1aa/image/TDHTYnXayCIm_3ssh98iec3cSY2agCCW6rDp5aSCwHM.jpg',
+                            // ),
+                          AssetImage("assets/fortuner1.png"),
                           ),
                         ],
                       ),

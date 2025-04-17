@@ -8,10 +8,13 @@ class AllCarsSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+              backgroundColor: Colors.white,
         title: Text(
           'All Cars ( ${cars.length} )',
           textAlign: TextAlign.center,
+          
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -21,22 +24,37 @@ class AllCarsSearch extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(30),
+            // decoration: BoxDecoration(
+            //   color: Colors.grey[100],
+            //   borderRadius: BorderRadius.circular(30),
+            // ),
+            child:  TextField(
+            decoration: InputDecoration(
+              hintText: 'Search car',
+              prefixIcon: const Icon(Icons.search),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
             ),
-            child: Row(
-              children: const [
-                Icon(Icons.search, color: Colors.blueGrey),
-                SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    'Search Cars',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
+          ), 
+            // Row(
+            //   children: [
+            //     const Icon(Icons.search, color: Colors.blueGrey),
+            //     const SizedBox(width: 8),
+            //     Expanded(
+            //       child: 
+          //         TextField(
+          //   decoration: InputDecoration(
+          //     hintText: 'Search car',
+          //     prefixIcon: const Icon(Icons.search),
+          //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+          //   ),
+          // ),
+                  // Text(
+                  //   'Search Cars',
+                  //   style: TextStyle(fontSize: 16),
+                  // ),
+            //     ),
+            //   ],
+            // ),
           ),
           const SizedBox(height: 10),
         

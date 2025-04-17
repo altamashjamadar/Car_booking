@@ -15,37 +15,58 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        Size size = MediaQuery.of(context).size;
     return Scaffold(
+      
       // Dark background
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text('Sign In Page'),
-        centerTitle: true,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   toolbarHeight: size.height*0.1,
+      //   backgroundColor: Colors.white,
+        
+      //   title: const Text('Sign In Page',),
+      //   centerTitle: true,
+      //   elevation: 0,
+      // ),
       body: Obx(() {
     
         if (authController.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
         
-        return SingleChildScrollView(
-          child: Center(
+        return 
+        SingleChildScrollView(
+          child:
+           Center(
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.85,
+                    
+              width: size.width * 0.85,
               margin: const EdgeInsets.only(top: 20, bottom: 20),
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
               ),
+              // SizedBox(height: 30,),
               child: Form(
                 key: _formKey,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  // mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: size.height*0.2,),
+                    Text("Sign in",
+                    style: TextStyle(
+                      fontSize: 42,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
+                    // ),Text('\t     \t          in',
+                    // style: TextStyle(fontWeight: FontWeight.bold),),
+                    SizedBox(height: 20,),
+
                     TextFormField(
                       controller: authController.phoneController,
                       keyboardType: TextInputType.phone,
@@ -67,7 +88,7 @@ class SignInPage extends StatelessWidget {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 10),
                     
                     Obx(
                       () => TextFormField(
@@ -102,7 +123,7 @@ class SignInPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 3),
                     
                     Align(
                       alignment: Alignment.centerRight,
@@ -120,80 +141,29 @@ class SignInPage extends StatelessWidget {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(double.infinity, 50),
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                        minimumSize: const Size(double.infinity,50),
+
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        backgroundColor: Colors.amber,
+                       
                       ),
                       child: const Text(
                         'Sign In',
                         style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
+                          fontSize: 16,
+                          color: Colors.black,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 150),
+                    // const Spacer(),
 
-                    Row(
-                      children: const [
-                        Expanded(child: Divider(thickness: 1)),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text('Or sign in with'),
-                        ),
-                        Expanded(child: Divider(thickness: 1)),
-                      ],
-                    ),
-                    const SizedBox(height: 40),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                         
-                          child: SingleChildScrollView(
-                            child: Row(
-                              children: [
-                              
-                                Container(
-                                  padding: const EdgeInsets.all(8.0),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/google_icon.png',
-                                    width: 24,
-                                    height: 24,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 40),
+                   
+                    // Column(
+                    //   children: [
                         
-                        InkWell(
-                          
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.asset(
-                              'assets/facebook_icon.jpeg',
-                              width: 24,
-                              height: 24,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
-                    
+                    //   ],
+                    // ),
                     
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

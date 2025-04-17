@@ -9,7 +9,9 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('Forgot Password'),
         centerTitle: true,
       ),
@@ -48,26 +50,31 @@ class ForgotPasswordScreen extends StatelessWidget {
               Obx(() => authController.isLoading.value
                   ? CircularProgressIndicator()
                   : ElevatedButton(
+                    
                       onPressed: () {
                         if (_formPasswordKey.currentState!.validate()) {
                           authController.resetPassword();
                         }
                       },
                       child: Padding(
+                        
                         padding: const EdgeInsets.symmetric(vertical: 15),
                         child: Text(
                           'Send Reset Link',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16,color: Colors.black),
+                          
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber,
                         minimumSize: Size(double.infinity, 50),
                       ),
                     )),
               SizedBox(height: 20),
               TextButton(
                 onPressed: () => Get.back(),
-                child: Text('Back to Sign In'),
+                child: Text('Back to Sign In',
+                style: TextStyle(color: Colors.black),),
               ),
             ],
           ),

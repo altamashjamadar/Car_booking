@@ -159,15 +159,18 @@ class _DriverDetailsScreenState extends State<DriverDetailsScreen> {
               Get.toNamed(Routes.driver);
             },
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black87,
-              backgroundColor: Colors.amber[200],
+               backgroundColor: Colors.amber[200],
+              // foregroundColor: Colors.black87,
+              // backgroundColor: Colors.amber[200],
+              // padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+              // shape: RoundedRectangleBorder(
+              //   borderRadius: BorderRadius.circular(12),
+              // ),
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
             ),
-            icon: const Icon(Icons.call),
-            label: const Text("Call Driver"),
+            icon: const Icon(Icons.call,color: Colors.black,),
+            label: const Text("Call Driver",style: TextStyle(color: Colors.black,),),
+            
           ),
         ],
       ),
