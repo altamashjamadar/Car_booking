@@ -1,20 +1,18 @@
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kangaroo_customer_app/all_cars_search.dart';
-import 'package:kangaroo_customer_app/routes.dart';
+import 'package:kangaroo_customer_app/screen/all_cars_search.dart';
+import 'package:kangaroo_customer_app/screen/routes.dart';
 
-class SelectedCar extends StatefulWidget {
-  final Car selectedCar;
-  const SelectedCar({Key? key, required this.selectedCar}) : super(key: key);
+class DriverDetailsScreen extends StatefulWidget {
+  const DriverDetailsScreen({super.key});
 
   @override
-  _SelectedCarState createState() => _SelectedCarState();
+  State<DriverDetailsScreen> createState() => _DriverDetailsScreenState();
 }
 
-class _SelectedCarState extends State<SelectedCar> {
+class _DriverDetailsScreenState extends State<DriverDetailsScreen> {
   final Completer<GoogleMapController> _mapController = Completer();
   final Set<Marker> _markers = {};
   final Set<Polyline> _polylines = {};
@@ -54,7 +52,6 @@ class _SelectedCarState extends State<SelectedCar> {
     return Scaffold(
       body: Stack(
         children: [
-     
           GoogleMap(
             initialCameraPosition: const CameraPosition(
               target: LatLng(18.5204, 73.8567),
@@ -76,10 +73,9 @@ class _SelectedCarState extends State<SelectedCar> {
   }
 
   Widget _buildBottomPanel(BuildContext context) {
-    final Car car = widget.selectedCar;
     final screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      height: screenHeight * 0.50,
+      height: screenHeight * 0.60,
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -99,79 +95,82 @@ class _SelectedCarState extends State<SelectedCar> {
               borderRadius: BorderRadius.circular(2.5),
             ),
           ),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Search car',
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
 
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Selected Car',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            children: [
+              const Text(
+                'We Find You a Driver',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                'Driver will pick you in 2:30',
+                style: TextStyle(fontSize: 22, color: Colors.amber),
+              ),
+              const SizedBox(height: 10),
+              Card(
+                elevation: 4,
+                shape: const CircleBorder(),
+                clipBehavior: Clip.antiAlias,
+                child: ClipOval(
+                  child: Image.asset(
+                    "assets/user_image.jpeg",
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            elevation: 4,
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(
-                      car.imagePath,
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          car.name,
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(car.price,
-                            style:
-                                TextStyle(fontSize: 14, color: Colors.grey[600])),
-                      ],
-                    ),
-                  ),
-                ],
+          Row(children: [const SizedBox(width: 12)]),
+           Text(
+              "Mike Marco",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[800],
               ),
             ),
-          ),
-       
-          const SizedBox(height: 16),
+            const SizedBox(height: 4),
+            Text(
+              "mike@example.in",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              "987xxxxxxx8",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+              ),
+            ),
 
-          ElevatedButton(
+            // const Spacer(),
+        
+        
+          const SizedBox(height: 30),
+
+          ElevatedButton.icon(
             onPressed: () {
-               Get.toNamed(Routes.booking);
-
+              Get.toNamed(Routes.driver);
             },
-            child: const Text('Confirm Selection'),
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.black87,
+              backgroundColor: Colors.amber[200],
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            icon: const Icon(Icons.call),
+            label: const Text("Call Driver"),
           ),
         ],
       ),
     );
   }
 }
-

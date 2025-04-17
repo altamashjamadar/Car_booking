@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kangaroo_customer_app/password_reset_success_screen.dart';
+import 'package:kangaroo_customer_app/screen/password_reset_success_screen.dart';
 
 class AuthController extends GetxController {
   final nameController = TextEditingController();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kangaroo_customer_app/auth_controller.dart';
+import 'package:kangaroo_customer_app/controller/auth_controller.dart';
 // import 'package:kangaroo_customer_app/car_home_page.dart';
-import 'package:kangaroo_customer_app/forgot_password_screen.dart';
+import 'package:kangaroo_customer_app/screen/forgot_password_screen.dart';
 import 'package:kangaroo_customer_app/welcome_screen.dart';
 
 

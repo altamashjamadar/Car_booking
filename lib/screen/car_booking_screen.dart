@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kangaroo_customer_app/auth_controller.dart';
+import 'package:kangaroo_customer_app/controller/auth_controller.dart';
 
 class CarBookingScreen extends StatelessWidget {
   const CarBookingScreen({super.key});

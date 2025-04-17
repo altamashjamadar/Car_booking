@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kangaroo_customer_app/all_cars_search.dart';
-import 'package:kangaroo_customer_app/auth_controller.dart';
-import 'package:kangaroo_customer_app/car_booking_screen.dart';
-import 'package:kangaroo_customer_app/car_home_page.dart';
-import 'package:kangaroo_customer_app/car_selection_screen.dart';
+import 'package:kangaroo_customer_app/screen/all_cars_search.dart';
+import 'package:kangaroo_customer_app/controller/auth_controller.dart';
+import 'package:kangaroo_customer_app/screen/car_booking_screen.dart';
+import 'package:kangaroo_customer_app/screen/car_home_page.dart';
+import 'package:kangaroo_customer_app/screen/car_selection_screen.dart';
+import 'package:kangaroo_customer_app/screen/driver_details_screen.dart';
 // import 'package:kangaroo_customer_app/car_selection_screen.dart';
-import 'package:kangaroo_customer_app/forgot_password_screen.dart';
-import 'package:kangaroo_customer_app/location_screen.dart';
-import 'package:kangaroo_customer_app/map_controller.dart';
-import 'package:kangaroo_customer_app/password_reset_success_screen.dart';
-import 'package:kangaroo_customer_app/paymentScreen.dart';
-import 'package:kangaroo_customer_app/rideScreen.dart';
-import 'package:kangaroo_customer_app/routes.dart';
-import 'package:kangaroo_customer_app/savedPlacesScreen.dart';
-import 'package:kangaroo_customer_app/settingScreen.dart';
+import 'package:kangaroo_customer_app/screen/forgot_password_screen.dart';
+import 'package:kangaroo_customer_app/screen/location_screen.dart';
+import 'package:kangaroo_customer_app/controller/map_controller.dart';
+import 'package:kangaroo_customer_app/screen/password_reset_success_screen.dart';
+import 'package:kangaroo_customer_app/screen/paymentScreen.dart';
+import 'package:kangaroo_customer_app/screen/rideScreen.dart';
+import 'package:kangaroo_customer_app/screen/routes.dart';
+import 'package:kangaroo_customer_app/screen/savedPlacesScreen.dart';
+import 'package:kangaroo_customer_app/screen/settingScreen.dart';
 import '../splashscreen.dart';
 import '/welcome_screen.dart';
 // import '/car_booking_screen.dart';
 import '/sign_in_page.dart';
 import '/sign_up.dart';
-import '/otp_screen.dart';
-import '/map_screen.dart';
+import 'screen/otp_screen.dart';
+import 'screen/map_screen.dart';
 // import '/home_screen.dart';
 
 
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
          GetPage(name: '/car-selection', page: () => CarSelectionScreen()),
          GetPage(name: '/SettingsScreen', page: () => SettingsScreen()),
          GetPage(name: '/ride', page: () => YourRidesScreen()),
+         GetPage(name: '/Driver', page: () => DriverDetailsScreen()),
          GetPage(name: '/savedPlaces', page: () => SavedPlacesScreen()),
            GetPage(name: '/Payment', page: () => PaymentMethodsScreen()),
            GetPage(name: '/Booking', page: () => CarBookingScreen()),

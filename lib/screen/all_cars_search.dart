@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:kangaroo_customer_app/selected_car.dart';
+import 'package:kangaroo_customer_app/screen/selected_car.dart';
 
 class AllCarsSearch extends StatelessWidget {
   const AllCarsSearch({super.key});
@@ -72,10 +72,18 @@ class AllCarsSearch extends StatelessWidget {
 class Car {
   final String name;
   final String price;
+  final String numberPlate;
+  final String color;
+  final String model;
+  final String seat;
   final String imagePath;
 
   const Car({
     required this.name,
+    required this.numberPlate,
+    required this.color,
+    required this.seat,
+    required this.model,
     required this.price,
     required this.imagePath,
   });
@@ -83,35 +91,60 @@ class Car {
 
 const List<Car> cars = [
   Car(
-    name: 'Audi R8',
-    price: '\$1,120/day',
-    imagePath: 'assets/cars/audi R8.jpeg',
-  ),
-  Car(
-    name: 'Mercedes',
-    price: '\$2,254/day',
-    imagePath: 'assets/cars/Mercedes.jpeg',
-  ),
-  Car(
-    name: 'Audi S5',
-    price: '\$2,810/day',
-    imagePath: 'assets/cars/Audi_S5.jpeg',
-  ),
-  Car(
-    name: 'Alfa Romeo F4',
-    price: '\$2,810/day',
-    imagePath: 'assets/cars/Alfa_Romeo_F4.jpeg',
-  ),
-  Car(
-    name: 'Limousine',
-    price: '\$2,810/day',
-    imagePath: 'assets/cars/Limousine.jpeg',
-  ),
-  Car(
-    name: 'Bentley',
-    price: '\$2,810/day',
-    imagePath: 'assets/cars/Bentley.jpeg',
-  ),
+  name: 'Audi R8',
+  price: '\$1,120/day',
+  color: 'Silver',
+  seat: '2 seats',
+  model: 'R8 V10 Plus',
+  numberPlate: 'AUDI-R8',
+  imagePath: 'assets/cars/audi R8.jpeg',
+),
+Car(
+  name: 'Mercedes',
+  price: '\$2,254/day',
+  color: 'Black',
+  seat: '5 seats',
+  model: 'E-Class',
+  numberPlate: 'MER-1234',
+  imagePath: 'assets/cars/Mercedes.jpeg',
+),
+Car(
+  name: 'Audi S5',
+  price: '\$2,810/day',
+  color: 'Red',
+  seat: '4 seats',
+  model: 'S5 Sportback',
+  numberPlate: 'AUDI-S5',
+  imagePath: 'assets/cars/Audi_S5.jpeg',
+),
+Car(
+  name: 'Alfa Romeo F4',
+  price: '\$2,810/day',
+  color: 'Rosso Alfa',
+  seat: '2 seats',
+  model: '4C Spider',
+  numberPlate: 'ALFA-4C',
+  imagePath: 'assets/cars/Alfa_Romeo_F4.jpeg',
+),
+Car(
+  name: 'Limousine',
+  price: '\$2,810/day',
+  color: 'White',
+  seat: '8 seats',
+  model: 'Lincoln Town Car Stretch',
+  numberPlate: 'LIMO-001',
+  imagePath: 'assets/cars/Limousine.jpeg',
+),
+Car(
+  name: 'Bentley',
+  price: '\$2,810/day',
+  color: 'Blue',
+  seat: '4 seats',
+  model: 'Continental GT',
+  numberPlate: 'BEN-789',
+  imagePath: 'assets/cars/Bentley.jpeg',
+),
+
 
 ];
 
