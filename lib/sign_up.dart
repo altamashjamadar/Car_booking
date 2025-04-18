@@ -68,7 +68,40 @@ class SignUpPage extends StatelessWidget {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 15),
+                               
+Obx(() => Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    const SizedBox(height: 10,),
+    const Text(
+      'Select Email Type',
+      style: TextStyle(fontWeight: FontWeight.bold),
+    ),
+    Row(
+      children: [
+        Radio<String>(
+          value: 'personal',
+          groupValue: authController.emailType.value,
+          onChanged: (value) {
+            authController.emailType.value = value!;
+          },
+        ),
+        const Text('Personal'),
+      
+        Radio<String>(
+          value: 'professional',
+          groupValue: authController.emailType.value,
+          onChanged: (value) {
+            authController.emailType.value = value!;
+          },
+        ),
+        const Text('Professional '),
+      ],
+    ),
+ 
+  ],
+)),
+   const SizedBox(height: 15),
                   TextFormField(
                     controller: authController.emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -80,16 +113,23 @@ class SignUpPage extends StatelessWidget {
                       prefixIcon: Icon(Icons.email),
                     ),
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                      // if (value == null || value.isEmpty) {
+                      //   return 'Please enter your email';
+                      // }
+                      if((value == null || value.isEmpty) && authController.emailType.value=='professional' ){
+                        return 'Please enter your Work email';
                       }
-                      if (!GetUtils.isEmail(value)) {
+                      if((value == null || value.isEmpty) && authController.emailType.value=='personal' ){
+                        return 'Please enter your Personal email';
+                      }
+
+                      if (!GetUtils.isEmail(value!)) {
                         return 'Please enter a valid email';
                       }
                       return null;
                     },
                   ),
-                  const SizedBox(height: 15),
+            const SizedBox(height: 15,),
                   Obx(() => TextFormField(
                     controller: authController.passwordController,
                     obscureText: !authController.showPassword.value,

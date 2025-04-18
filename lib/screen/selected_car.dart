@@ -97,26 +97,6 @@ class _SelectedCarState extends State<SelectedCar> {
               borderRadius: BorderRadius.circular(2.5),
             ),
           ),
-          // TextField(
-          //   decoration: InputDecoration(
-          //     hintText: 'Search car',
-          //     prefixIcon: const Icon(Icons.search),
-          //     border: OutlineInputBorder(
-          //       borderRadius: BorderRadius.circular(8.0),
-          //     ),
-          //   ),
-          // ),
-          // const SizedBox(height: 16),
-
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: const [
-          //     // Text(
-          //     //   'Selected Car',
-          //     //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          //     // ),
-          //   ],
-          // ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -130,15 +110,6 @@ class _SelectedCarState extends State<SelectedCar> {
               const SizedBox(height: 8),
             ],
           ),
-          // Card(
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(15),
-          //   ),
-          //   elevation: 4,
-          // child:
-          // Padding(
-          //   padding: const EdgeInsets.all(12),
-          //   child:
           Row(
             children: [
               ClipRRect(
@@ -155,10 +126,7 @@ class _SelectedCarState extends State<SelectedCar> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Text(
-                  //   car.price,
-                  //   style:TextStyle(fontSize: 14, color: Colors.grey[600])),
-                  // const SizedBox(height: 4),
+                  
                   Text(
                     "Number Plate :"+car.numberPlate,
                      style:TextStyle(fontSize: 14, color: Colors.grey[600])),
@@ -174,52 +142,32 @@ class _SelectedCarState extends State<SelectedCar> {
                   const SizedBox(height: 4),
                 ],
               ),
-              // Expanded(
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //   //     Text(
-              //   //       car.name,
-              //   //       style: const TextStyle(
-              //   //           fontSize: 16, fontWeight: FontWeight.bold),
-              //   //     ),
-              //   //     const SizedBox(height: 4),
-              //   //     Text(car.price,
-                        // style:
-                        //     TextStyle(fontSize: 14, color: Colors.grey[600])),
-              //     ],
-              //   ),
-              // ),
-          //   ],
-          // ),
+             const SizedBox(height: 16),
 
-          // ),
-          // ),
-          const SizedBox(height: 16),
+ const Spacer(),
 
-          // ElevatedButton(
-          //   onPressed: () {
-          //     Get.toNamed(Routes.driver);
-          //   },
-          //   child:  Text("Price"+car.price+'\t \t Confirm Car'),
-          // ),
-          ElevatedButton(
-  onPressed: () {
-    Get.toNamed(Routes.driver);
-  },
-  style: ElevatedButton.styleFrom(
-   backgroundColor: Colors.amber[200],
-    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
- ),
-  child: Text(
-    "Price: ${car.price}    Confirm Car",
-    style: const TextStyle(
-      fontSize: 16,
-       color: Colors.black,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
-)
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                const Text('\$254.00', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.confirmRide);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber,
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text('Select', style: TextStyle(color: Colors.black,fontSize: 14, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

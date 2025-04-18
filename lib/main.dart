@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kangaroo_customer_app/screen/all_cars_search.dart';
 import 'package:kangaroo_customer_app/controller/auth_controller.dart';
+import 'package:kangaroo_customer_app/screen/cancel_ride.dart';
 import 'package:kangaroo_customer_app/screen/car_booking_screen.dart';
 import 'package:kangaroo_customer_app/screen/car_home_page.dart';
 import 'package:kangaroo_customer_app/screen/car_selection_screen.dart';
@@ -63,7 +64,8 @@ class MyApp extends StatelessWidget {
          GetPage(name: '/car-selection', page: () => CarSelectionScreen()),
          GetPage(name: '/SettingsScreen', page: () => SettingsScreen()),
          GetPage(name: '/ride', page: () => YourRidesScreen()),
-        //  GetPage(name: '/confirmRide', page: () => Confirmride()),
+         GetPage(name: '/confirmRide', page: () => ConfirmRide()),
+         GetPage(name: '/cancelRide', page: () => CancelRide()),
          GetPage(name: '/Driver', page: () => DriverDetailsScreen()),
          GetPage(name: '/savedPlaces', page: () => SavedPlacesScreen()),
            GetPage(name: '/Payment', page: () => PaymentMethodsScreen()),

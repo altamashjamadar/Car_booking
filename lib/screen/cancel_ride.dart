@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'routes.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class ConfirmRide extends StatefulWidget {
-  const ConfirmRide({Key? key}) : super(key: key);
+class CancelRide extends StatefulWidget {
+  const CancelRide({super.key});
 
   @override
-  _ConfirmRideState createState() => _ConfirmRideState();
+  State<CancelRide> createState() => _CancelRideState();
 }
 
-class _ConfirmRideState extends State<ConfirmRide> {
+class _CancelRideState extends State<CancelRide> {
   final Completer<GoogleMapController> _mapController = Completer();
   final Set<Marker> _markers = {};
   final Set<Polyline> _polylines = {};
@@ -45,10 +45,13 @@ class _ConfirmRideState extends State<ConfirmRide> {
     );
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           GoogleMap(
@@ -64,10 +67,11 @@ class _ConfirmRideState extends State<ConfirmRide> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: _buildBottomSheet(context, height * 0.45),
+            child: _buildBottomSheet(context, height * 0.35),
           ),
         ],
       ),
+
     );
   }
 
@@ -103,33 +107,12 @@ class _ConfirmRideState extends State<ConfirmRide> {
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
-            'Confirm ride',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
-
-          // Destination Row
-          Row(
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // const Icon(Icons.location_on_outlined, color: Colors.orange),
-              ClipRRect(
-                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset("assets/cars/destination.jpeg" ,width: 60,
-                    height: 40,
-                    fit: BoxFit.cover,),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('DESTINATION', style: TextStyle(fontSize: 12, color: Colors.grey)),
-                    SizedBox(height: 4),
-                    Text('Mool chand mill pvt ltd,pune Hadapsar', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-                  ],
-                ),
+              const Text(
+                'Your ride',
+                // textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -141,16 +124,13 @@ class _ConfirmRideState extends State<ConfirmRide> {
                   children: const [
                     Icon(Icons.access_time, size: 16, color: Colors.orange),
                     SizedBox(width: 4),
-                    Text('8 min away', style: TextStyle(fontSize: 12)),
+                    Text('at location', style: TextStyle(fontSize: 12)),
                   ],
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
-            Divider(),
-          const SizedBox(height: 8),
-          // Car Row
+          const SizedBox(height: 20),
           Row(
             children: [
               ClipRRect(
@@ -167,50 +147,45 @@ class _ConfirmRideState extends State<ConfirmRide> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text('CAR', style: TextStyle(fontSize: 12, color: Colors.grey)),
-                    SizedBox(height: 4),
                     Text('Audi R8 (MH 0000)', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-                  ],
+                ],
                 ),
+                
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Colors.grey[100],
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: const [
-                    Icon(Icons.star, size: 16, color: Colors.amber),
-                    SizedBox(width: 4),
-                    Text('4.4', style: TextStyle(fontSize: 12)),
-                  ],
-                ),
-              ),
-            ],
+              
+          ],
           ),
-          const Spacer(),
-
-          Row(
+          Divider(),
+          //  const Spacer(),
+          SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Get.toNamed(Routes.cancelRide);
+              },
+              style: ElevatedButton.styleFrom(
+                 backgroundColor: Colors.amber,
+                
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+              ),
+              // icon: const Icon(Icons.call,color: Colors.black,),
+              label: const Text("Confrim Ride",style: TextStyle(color: Colors.black,),),
+              
+            ),
+            
+          ),
+          Column(
             children: [
-              const Text('\$254.00', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: () {
-                  Get.toNamed(Routes.driver);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text('Confirm Ride', style: TextStyle(color: Colors.black,fontSize: 14, fontWeight: FontWeight.bold)),
-              ),
+              Text("Cancel",
+              style: TextStyle(
+                color: Colors.red
+              ),)
             ],
-          ),
-        ],
+          )
+
+   
+      ],
       ),
     );
   }

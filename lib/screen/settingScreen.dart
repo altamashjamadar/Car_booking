@@ -5,8 +5,9 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   const String userName = 'John Doe';
-    const String userEmail = 'john.doe@example.com';
+      Size size = MediaQuery.of(context).size;
+  //  const String userName = 'John Doe';
+  //   const String userEmail = 'john.doe@example.com';
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -113,8 +114,20 @@ class SettingsScreen extends StatelessWidget {
               //  to About page
             },
           ),
+              Expanded(
+               child: Column(
+                children: [
+           SizedBox(height: size.height*0.6,),
+                  Padding(
+                       padding: const EdgeInsets.all(16.0),
+                        child: Text('Version 1.0', style: TextStyle(color: Colors.grey)),
+                        ),
+                ],
+              ),
+            ),
         ],
       ),
+      
     );
   }
 }

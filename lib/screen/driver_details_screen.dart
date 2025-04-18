@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kangaroo_customer_app/screen/all_cars_search.dart';
+// import 'package:kangaroo_customer_app/screen/all_cars_search.dart';
 import 'package:kangaroo_customer_app/screen/routes.dart';
 
 class DriverDetailsScreen extends StatefulWidget {
@@ -153,24 +153,22 @@ class _DriverDetailsScreenState extends State<DriverDetailsScreen> {
         
         
           const SizedBox(height: 30),
-
-          ElevatedButton.icon(
-            onPressed: () {
-              Get.toNamed(Routes.driver);
-            },
-            style: ElevatedButton.styleFrom(
-               backgroundColor: Colors.amber[200],
-              // foregroundColor: Colors.black87,
-              // backgroundColor: Colors.amber[200],
-              // padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-              // shape: RoundedRectangleBorder(
-              //   borderRadius: BorderRadius.circular(12),
-              // ),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Get.toNamed(Routes.cancelRide);
+              },
+              style: ElevatedButton.styleFrom(
+                 backgroundColor: Colors.amber,
+                
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+              ),
+              icon: const Icon(Icons.call,color: Colors.black,),
+              label: const Text("Call Driver",style: TextStyle(color: Colors.black,),),
+              
             ),
-            icon: const Icon(Icons.call,color: Colors.black,),
-            label: const Text("Call Driver",style: TextStyle(color: Colors.black,),),
-            
           ),
         ],
       ),

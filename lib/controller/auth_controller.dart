@@ -12,6 +12,8 @@ class AuthController extends GetxController {
   final passwordController = TextEditingController();
   final otpController = TextEditingController();
 
+  var emailType = "personal".obs; 
+
   var isLoggedIn = false.obs;
 
   var isLoading = false.obs;

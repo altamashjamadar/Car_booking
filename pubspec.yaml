@@ -91,6 +91,7 @@ flutter:
     - assets/fortuner2.png
     - assets/google_icon.png
     - assets/facebook_icon.jpeg
+    - assets/cars/destination.jpeg
     - assets/cars/Alfa_Romeo_F4.jpeg
     - assets/cars/audi R8.jpeg
     - assets/cars/Audi_S5.jpeg

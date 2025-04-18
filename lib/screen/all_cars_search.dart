@@ -109,6 +109,7 @@ class Car {
 
 const List<Car> cars = [
   Car(
+   
   name: 'Audi R8',
   price: '\$1,120/day',
   color: 'Silver',
@@ -175,6 +176,7 @@ class CarCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -184,6 +186,7 @@ class CarCard extends StatelessWidget {
         children: [
           // Car Image
           ClipRRect(
+            
             borderRadius:
                 const BorderRadius.vertical(top: Radius.circular(15)),
             child: Image.asset(

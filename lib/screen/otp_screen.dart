@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/auth_controller.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+// import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPScreen extends StatelessWidget {
   final String phone;

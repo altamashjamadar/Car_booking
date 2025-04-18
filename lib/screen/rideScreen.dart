@@ -72,10 +72,22 @@ class RideHistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.amber,
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 2,
+  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  child: Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [const Color.fromARGB(255, 243, 255, 7), Colors.orange],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+      borderRadius: BorderRadius.circular(12),
+    ),
+      // color: Colors.amber,
+      // elevation: 2,
+      // margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
         leading: const Icon(Icons.directions_car, size: 32, color: Colors.black54),
@@ -96,6 +108,7 @@ class RideHistoryCard extends StatelessWidget {
         ),
         
       ),
+    )
     );
   }
 }
