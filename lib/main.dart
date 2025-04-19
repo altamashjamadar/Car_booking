@@ -10,6 +10,7 @@ import 'package:kangaroo_customer_app/screen/confirmRide.dart';
 import 'package:kangaroo_customer_app/screen/driver_details_screen.dart';
 // import 'package:kangaroo_customer_app/car_selection_screen.dart';
 import 'package:kangaroo_customer_app/screen/forgot_password_screen.dart';
+import 'package:kangaroo_customer_app/screen/inprogress_Ride_screen.dart';
 import 'package:kangaroo_customer_app/screen/location_screen.dart';
 import 'package:kangaroo_customer_app/controller/map_controller.dart';
 import 'package:kangaroo_customer_app/screen/password_reset_success_screen.dart';
@@ -48,8 +49,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/splash',
-      // initialRoute: '/car-selection',
-      // initialRoute: '/all-car-selection',
+      // initialRoute: '/confirmRide',
+      
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),
         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/signup', page: () => SignUpPage()),
         GetPage(name: '/otp', page: () => OTPScreen(phone: Get.arguments)),
         GetPage(name: '/home', page: () => CarHomePage()),
-        // GetPage(name: '/booking', page: () => CarBookingScreen()),
+        GetPage(name: '/booking', page: () => CarBookingScreen()),
         GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
          GetPage(name: '/map', page: () => MapScreen()), 
          GetPage(name: '/your-route', page: () => YourRouteScreen()), 
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
          GetPage(name: '/SettingsScreen', page: () => SettingsScreen()),
          GetPage(name: '/ride', page: () => YourRidesScreen()),
          GetPage(name: '/confirmRide', page: () => ConfirmRide()),
+         GetPage(name: '/inprogressRide', page: () => InprogressRideScreen()),
          GetPage(name: '/cancelRide', page: () => CancelRide()),
          GetPage(name: '/Driver', page: () => DriverDetailsScreen()),
          GetPage(name: '/savedPlaces', page: () => SavedPlacesScreen()),
@@ -76,7 +78,7 @@ class MyApp extends StatelessWidget {
     Get.lazyPut<MapController>(() => MapController());
   }),
 ),
-        // GetPage(name: '/carHome', page: () => CarHomePage(),),
+        GetPage(name: '/carHome', page: () => CarHomePage(),),
         GetPage(name: '/all-car-selection', page: () => AllCarsSearch()), 
       ],
     );

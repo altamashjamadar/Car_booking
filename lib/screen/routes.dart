@@ -14,6 +14,7 @@ class Routes {
   static const rides = '/ride';
   static const cancelRide = '/cancelRide';
   static const confirmRide = '/confirmRide';
+  static const inprogressRide = '/inprogressRide';
   static const payment = '/Payment';
   static const booking = '/Booking';
   static const driver = '/Driver';

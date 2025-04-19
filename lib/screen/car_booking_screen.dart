@@ -37,7 +37,7 @@ class CarBookingScreen extends StatelessWidget {
                   Get.toNamed('/signin');
                 } else {
                 
-                  Get.snackbar('Success', 'Car booked successfully!');
+                  Get.snackbar('Cancelled', 'Ride Cancelled successfully!');
                 }
               },
               child: const Text('Book Now'),

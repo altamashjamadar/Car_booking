@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kangaroo_customer_app/screen/car_booking_screen.dart';
 import 'routes.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -162,26 +163,30 @@ class _CancelRideState extends State<CancelRide> {
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton.icon(
               onPressed: () {
-                Get.toNamed(Routes.cancelRide);
+                Get.toNamed(Routes.inprogressRide);
               },
               style: ElevatedButton.styleFrom(
                  backgroundColor: Colors.amber,
                 
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
               ),
-              // icon: const Icon(Icons.call,color: Colors.black,),
+             
               label: const Text("Confrim Ride",style: TextStyle(color: Colors.black,),),
               
             ),
             
           ),
-          Column(
-            children: [
-              Text("Cancel",
-              style: TextStyle(
-                color: Colors.red
-              ),)
-            ],
+          InkWell(
+          
+            onTap: () => Get.to(()=>CarBookingScreen()),
+             child: Column(
+              children: [
+                Text("Cancel",
+                style: TextStyle(
+                  color: Colors.red
+                ),)
+              ],
+            ),
           )
 
    
