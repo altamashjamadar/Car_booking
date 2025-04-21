@@ -159,8 +159,22 @@ Obx(() => Column(
                       }
                       return null;
                     },
-                  )),
-                  const SizedBox(height: 25),
+                  ),
+                  ),
+                  
+                  const SizedBox(height: 15),
+                         TextFormField(
+                    //controller: authController.nameController,
+                    decoration:  InputDecoration(
+                      border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0)
+                    ),
+                      labelText: 'Refferal Code',
+                      hintText: 'Enter Referral Code',
+                    
+                    ),
+                         ),
+                         SizedBox(height: 15,),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(

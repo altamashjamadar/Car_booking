@@ -135,6 +135,13 @@ class _CarHomePageState extends State<CarHomePage> {
                   Get.toNamed(Routes.savedPlaces);
                 },
               ),
+               ListTile(
+                leading: Icon(Icons.card_giftcard),
+                title: Text('Refer and Earn'),
+                onTap: () {
+                  Get.toNamed(Routes.refers);
+                },
+              ),
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Settings'),

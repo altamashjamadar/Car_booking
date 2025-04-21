@@ -82,6 +82,10 @@ flutter:
   assets:
     - assets/logo.jpeg
     - assets/car1.jpeg
+    - assets/mic.png
+    - assets/mic1.png
+    - assets/mic2.png
+    - assets/mic3.png
     - assets/car_icon.jpeg
     - assets/img1.jpeg
     - assets/user_image.jpeg

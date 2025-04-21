@@ -15,6 +15,7 @@ import 'package:kangaroo_customer_app/screen/location_screen.dart';
 import 'package:kangaroo_customer_app/controller/map_controller.dart';
 import 'package:kangaroo_customer_app/screen/password_reset_success_screen.dart';
 import 'package:kangaroo_customer_app/screen/paymentScreen.dart';
+import 'package:kangaroo_customer_app/screen/refferal_screen.dart';
 import 'package:kangaroo_customer_app/screen/rideScreen.dart';
 import 'package:kangaroo_customer_app/screen/routes.dart';
 import 'package:kangaroo_customer_app/screen/savedPlacesScreen.dart';
@@ -61,6 +62,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/booking', page: () => CarBookingScreen()),
         GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
          GetPage(name: '/map', page: () => MapScreen()), 
+        //  GetPage(name: '/refer', page: () => RefferalScreen()), 
+         GetPage(name: '/referScreen', page: () => ReferralScreen()), 
          GetPage(name: '/your-route', page: () => YourRouteScreen()), 
          GetPage(name: '/car-selection', page: () => CarSelectionScreen()),
          GetPage(name: '/SettingsScreen', page: () => SettingsScreen()),

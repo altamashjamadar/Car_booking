@@ -12,6 +12,7 @@ class Routes {
   static const settings = '/SettingsScreen';
   static const login = '/signin';
   static const rides = '/ride';
+  static const refers='/referScreen';
   static const cancelRide = '/cancelRide';
   static const confirmRide = '/confirmRide';
   static const inprogressRide = '/inprogressRide';
