@@ -19,5 +19,6 @@ class Routes {
   static const payment = '/Payment';
   static const booking = '/Booking';
   static const driver = '/Driver';
+  static const editprofile='/editProfile';
     static const savedPlaces = '/savedPlaces';
 }

@@ -81,6 +81,8 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24),
+
+          
           topRight: Radius.circular(24),
         ),
         boxShadow: [

@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   geolocator: ^13.0.4
   location: ^8.0.0
+  image_picker: ^1.1.2
   baseflow_plugin_template: ^2.2.0
   firebase_auth: ^5.5.2
   google_sign_in: ^6.3.0
@@ -88,10 +89,11 @@ flutter:
     - assets/mic3.png
     - assets/car_icon.jpeg
     - assets/img1.jpeg
+    - assets/safety.jpeg
     - assets/user_image.jpeg
     - assets/fortuner.jpeg
     - assets/fortuner1.png
-    - assets/marker_car.png
+    # - assets/marker_car.png
     - assets/fortuner2.png
     - assets/google_icon.png
     - assets/facebook_icon.jpeg

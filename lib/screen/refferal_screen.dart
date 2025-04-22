@@ -30,7 +30,6 @@ class ReferralScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    // Illustration
                     Image.asset(
                       'assets/mic2.png',
                       width: size.width * 0.35,
@@ -38,7 +37,7 @@ class ReferralScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 12),
-                    // Text + code
+         
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +53,7 @@ class ReferralScreen extends StatelessWidget {
                           const SizedBox(height: 12),
                           
                           GestureDetector(
-                            // onTap: () => _copyCode(context, referralCode),
+                           
                             onTap: () {
                               Get.snackbar("Code Copied","Refferal code copied");
                             },
@@ -116,7 +115,7 @@ class ReferralScreen extends StatelessWidget {
                   ],
                 ),
                 onPressed: () {
-                  //on tap actions
+               
                 },
               ),
             ),
@@ -158,7 +157,6 @@ class ReferralScreen extends StatelessWidget {
             ),
                 const Spacer(),
 
-//             // Bottom two buttons
             Row(
               children: [
                 Expanded(
@@ -171,7 +169,7 @@ class ReferralScreen extends StatelessWidget {
                       side: const BorderSide(color: Colors.grey),
                     ),
                     onPressed: () {
-                      // TODO
+                      Get.snackbar("title", "message");
                     },
                     child: const Text('Find Friends to Refer'),
                   ),
@@ -187,7 +185,8 @@ class ReferralScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // TODO
+                    Get.snackbar("Refer now", 
+                    "refferd now");
                     },
                     child: const Text(
                       'Refer Now',

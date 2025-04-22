@@ -8,6 +8,7 @@ import 'package:kangaroo_customer_app/screen/car_home_page.dart';
 import 'package:kangaroo_customer_app/screen/car_selection_screen.dart';
 import 'package:kangaroo_customer_app/screen/confirmRide.dart';
 import 'package:kangaroo_customer_app/screen/driver_details_screen.dart';
+import 'package:kangaroo_customer_app/screen/edit_profile_screen.dart';
 // import 'package:kangaroo_customer_app/car_selection_screen.dart';
 import 'package:kangaroo_customer_app/screen/forgot_password_screen.dart';
 import 'package:kangaroo_customer_app/screen/inprogress_Ride_screen.dart';
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
          GetPage(name: '/confirmRide', page: () => ConfirmRide()),
          GetPage(name: '/inprogressRide', page: () => InprogressRideScreen()),
          GetPage(name: '/cancelRide', page: () => CancelRide()),
+         GetPage(name: '/editProfile', page: () => EditProfileScreen()),
          GetPage(name: '/Driver', page: () => DriverDetailsScreen()),
          GetPage(name: '/savedPlaces', page: () => SavedPlacesScreen()),
            GetPage(name: '/Payment', page: () => PaymentMethodsScreen()),

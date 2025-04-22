@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kangaroo_customer_app/sign_in_page.dart';
+import 'package:kangaroo_customer_app/sign_up.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -18,84 +21,23 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          
-          // Container(
-          //   color: Colors.grey[200],
-          //   padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-          //   child:
-          //    Row(
-          //     children: [
-                
-          //       const CircleAvatar(
-          //         radius: 35,
-          //         backgroundImage: AssetImage('assets/images/profile.jpg'),
-          //       ),
-          //       const SizedBox(width: 16),
-            
-          //       Expanded(
-          //         child: Column(
-          //           crossAxisAlignment: CrossAxisAlignment.start,
-          //           children: [
-          //             Text(
-          //               userName,
-          //               style: const TextStyle(
-          //                 fontSize: 18,
-          //                 fontWeight: FontWeight.bold,
-          //               ),
-          //             ),
-          //             const SizedBox(height: 4),
-          //             Text(
-          //               userEmail,
-          //               style: const TextStyle(
-          //                 fontSize: 14,
-          //                 color: Colors.grey,
-          //               ),
-          //             ),
-          //             const SizedBox(height: 4),
-          //             GestureDetector(
-                        
-          //               child: const Text(
-          //                 'View profile',
-          //                 style: TextStyle(
-          //                   fontSize: 14,
-          //                   color: Colors.blue,
-          //                 ),
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           const Divider(height: 1),
-          // Settings Options
-          // SettingOption(
-          //   icon: Icons.history,
-          //   title: 'Ride History',
-          //   onTap: () {
-          //     // to Ride History page
-          //   },
-          // ),
-          // SettingOption(
-          //   icon: Icons.payment,
-          //   title: 'Payments',
-          //   onTap: () {
-          //     //   to Payments page
-          //   },
-          // ),
-          // SettingOption(
-          //   icon: Icons.location_on,
-          //   title: 'Saved Places',
-          //   onTap: () {
-          //     //  to Saved Places page
-          //   },
-          // ),
+        
           SettingOption(
             icon: Icons.settings,
             title: 'App Settings',
             onTap: () {
-              //  to App Settings page
+            //  Get.dialog(
+            //   // AlertDialog(
+            //   //   backgroundColor: Colors.white,
+            //   // ),
+            //   BottomSheet(onClosing: () {
+                
+            //   }, builder: (context) {
+                
+            //   },)
+            //  );
+               Get.to(() => const AppSettingsPage());
             },
           ),
           SettingOption(
@@ -132,6 +74,7 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
+
 class SettingOption extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -154,6 +97,105 @@ class SettingOption extends StatelessWidget {
       ),
       trailing: const Icon(Icons.chevron_right),
       onTap: onTap,
+    );
+  }
+}
+
+class AppSettingsPage extends StatefulWidget {
+  const AppSettingsPage({Key? key}) : super(key: key);
+
+  @override
+  State<AppSettingsPage> createState() => _AppSettingsPageState();
+}
+
+class _AppSettingsPageState extends State<AppSettingsPage> {
+  bool _darkMode = false;
+  bool _notifications = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.amber,
+        title: const Text('App Settings'),
+      
+        elevation: 1,
+        centerTitle: true,
+      ),
+      body: 
+      Container(
+        
+        child: ListView(
+          children: [
+            SwitchListTile(
+              title: const Text('Dark Mode'),
+              value: _darkMode,
+              onChanged: (v) => setState(() => _darkMode = v),
+              secondary: const Icon(Icons.dark_mode),
+            ),
+        
+            SwitchListTile(
+              title: const Text('Push Notifications'),
+              value: _notifications,
+              onChanged: (v) => setState(() => _notifications = v),
+              secondary: const Icon(Icons.notifications_active),
+            ),
+        
+            const Divider(height: 1),
+            ListTile(
+              
+              leading: const Icon(Icons.delete_forever, color: Colors.redAccent),
+              title: const Text('Delete Account'),
+              subtitle: const Text(
+                'Permanently remove your account and data',
+                style: TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              onTap: () {
+                Get.dialog<bool>(
+                  AlertDialog(
+                    backgroundColor: Colors.white,
+                    title: const Text('Delete Account?'),
+                    content: const Text(
+                      'This will permanently remove your account and all of your data. '
+                      'Are you sure you want to continue?',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Get.back(result: false),
+                        child: const Text('Cancel'),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.redAccent,
+                        ),
+                        onPressed: () {
+                          Get.back(result: true);
+                          
+                          Get.offAll(SignInPage());
+                        },
+                        child: const Text('Delete'),
+                      ),
+                    ],
+                  ),
+                  barrierDismissible: false,
+                ).then((confirmed) {
+                  if (confirmed == true) {
+                  
+                    Get.snackbar(
+                      'Account Deleted',
+                      'Your account has been removed.',
+                      backgroundColor: Colors.redAccent.withOpacity(0.1),
+                      colorText: Colors.redAccent,
+                    );
+                   
+                  }
+                });
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
