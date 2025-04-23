@@ -16,9 +16,11 @@ import 'package:kangaroo_customer_app/screen/location_screen.dart';
 import 'package:kangaroo_customer_app/controller/map_controller.dart';
 import 'package:kangaroo_customer_app/screen/password_reset_success_screen.dart';
 import 'package:kangaroo_customer_app/screen/paymentScreen.dart';
+import 'package:kangaroo_customer_app/screen/promos.dart';
 import 'package:kangaroo_customer_app/screen/refferal_screen.dart';
 import 'package:kangaroo_customer_app/screen/rideScreen.dart';
 import 'package:kangaroo_customer_app/screen/routes.dart';
+import 'package:kangaroo_customer_app/screen/safety_screen.dart';
 import 'package:kangaroo_customer_app/screen/savedPlacesScreen.dart';
 import 'package:kangaroo_customer_app/screen/settingScreen.dart';
 import '../splashscreen.dart';
@@ -63,12 +65,13 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/booking', page: () => CarBookingScreen()),
         GetPage(name: '/forgot-password', page: () => ForgotPasswordScreen()),
          GetPage(name: '/map', page: () => MapScreen()), 
-        //  GetPage(name: '/refer', page: () => RefferalScreen()), 
+         GetPage(name: '/safetyScreen', page: () => SafetyScreen()), 
          GetPage(name: '/referScreen', page: () => ReferralScreen()), 
          GetPage(name: '/your-route', page: () => YourRouteScreen()), 
          GetPage(name: '/car-selection', page: () => CarSelectionScreen()),
          GetPage(name: '/SettingsScreen', page: () => SettingsScreen()),
          GetPage(name: '/ride', page: () => YourRidesScreen()),
+         GetPage(name: '/promos', page: () => Promos()),
          GetPage(name: '/confirmRide', page: () => ConfirmRide()),
          GetPage(name: '/inprogressRide', page: () => InprogressRideScreen()),
          GetPage(name: '/cancelRide', page: () => CancelRide()),

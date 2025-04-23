@@ -9,9 +9,11 @@ class Routes {
   static const carHome = '/car-home';
   static const carSelection = '/car-selection';
   static const map = '/map';
+  static const safety = '/safetyScreen';
   static const settings = '/SettingsScreen';
   static const login = '/signin';
   static const rides = '/ride';
+  static const promos = '/promos';
   static const refers='/referScreen';
   static const cancelRide = '/cancelRide';
   static const confirmRide = '/confirmRide';

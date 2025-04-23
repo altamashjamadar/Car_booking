@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kangaroo_customer_app/sign_in_page.dart';
-import 'package:kangaroo_customer_app/sign_up.dart';
+// import 'package:kangaroo_customer_app/sign_up.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);

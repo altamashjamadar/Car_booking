@@ -38,14 +38,13 @@ dependencies:
   cupertino_icons: ^1.0.8
   geolocator: ^13.0.4
   location: ^8.0.0
-  image_picker: ^1.1.2
+  # image_picker: ^1.1.2
   baseflow_plugin_template: ^2.2.0
-  firebase_auth: ^5.5.2
-  google_sign_in: ^6.3.0
-  flutter_facebook_auth: ^7.1.1
+  # firebase_auth: ^5.5.2
+  # google_sign_in: ^6.3.0
+  # flutter_facebook_auth: ^7.1.1
   pin_code_fields: ^8.0.1
-  # get:
-  # google_maps_flutter: ^2.12.1
+  
   
 
 dev_dependencies:
@@ -62,6 +61,11 @@ dev_dependencies:
   flutter_launcher_icons: "^0.14.3"
   # google_maps_flutter: ^2.12.1
   get: ^4.7.2
+  # permission_handler: ^12.0.0+1
+  # contacts_service: ^0.6.3
+  # contacts_service: ^0.7.0+1
+
+
   # location: ^4.3.0       
 flutter_launcher_icons:
   android: true
@@ -83,13 +87,15 @@ flutter:
   assets:
     - assets/logo.jpeg
     - assets/car1.jpeg
+    - assets/contact.png
+    - assets/24:7.png
     - assets/mic.png
     - assets/mic1.png
     - assets/mic2.png
     - assets/mic3.png
     - assets/car_icon.jpeg
     - assets/img1.jpeg
-    - assets/safety.jpeg
+    - assets/tracking.jpeg
     - assets/user_image.jpeg
     - assets/fortuner.jpeg
     - assets/fortuner1.png
@@ -100,6 +106,7 @@ flutter:
     - assets/cars/destination.jpeg
     - assets/cars/Alfa_Romeo_F4.jpeg
     - assets/cars/audi R8.jpeg
+    - assets/cars/demo.jpeg
     - assets/cars/Audi_S5.jpeg
     - assets/cars/Bentley.jpeg
     - assets/cars/Limousine.jpeg

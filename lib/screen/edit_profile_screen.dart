@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -13,19 +13,19 @@ class EditProfileScreen extends StatefulWidget {
 
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-   final ImagePicker _picker = ImagePicker();
+  //  final ImagePicker _picker = ImagePicker();
   File? _profileImage;
 
-  Future<void> _pickImage(ImageSource src) async {
-    final picked = await _picker.pickImage(source: src, imageQuality: 80);
-    if (picked != null) {
-      setState(() => _profileImage = File(picked.path));
-    }
-  }
+  // Future<void> _pickImage(ImageSource src) async {
+  //   final picked = await _picker.pickImage(source: src, imageQuality: 80);
+  //   if (picked != null) {
+  //     setState(() => _profileImage = File(picked.path));
+  //   }
+  // }
   @override
   Widget build(BuildContext context) {
      String _gender = 'Male';
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

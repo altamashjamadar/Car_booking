@@ -146,6 +146,20 @@ class _CarHomePageState extends State<CarHomePage> {
                 },
               ),
               ListTile(
+                leading: Icon(Icons.security_rounded),
+                title: Text('Safety Hub'),
+                onTap: () {
+                  Get.toNamed(Routes.safety);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.discount),
+                title: Text('Promos'),
+                onTap: () {
+                  Get.toNamed(Routes.promos);
+                },
+              ),
+              ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Settings'),
                 onTap: () {
