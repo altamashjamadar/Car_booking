@@ -12,11 +12,13 @@ import 'package:kangaroo_customer_app/screen/edit_profile_screen.dart';
 // import 'package:kangaroo_customer_app/car_selection_screen.dart';
 import 'package:kangaroo_customer_app/screen/forgot_password_screen.dart';
 import 'package:kangaroo_customer_app/screen/inprogress_Ride_screen.dart';
+// import 'package:kangaroo_customer_app/screen/feedba.dart';
 import 'package:kangaroo_customer_app/screen/location_screen.dart';
 import 'package:kangaroo_customer_app/controller/map_controller.dart';
 import 'package:kangaroo_customer_app/screen/password_reset_success_screen.dart';
 import 'package:kangaroo_customer_app/screen/paymentScreen.dart';
 import 'package:kangaroo_customer_app/screen/promos.dart';
+import 'package:kangaroo_customer_app/screen/rating_screen.dart';
 import 'package:kangaroo_customer_app/screen/refferal_screen.dart';
 import 'package:kangaroo_customer_app/screen/rideScreen.dart';
 import 'package:kangaroo_customer_app/screen/routes.dart';
@@ -77,6 +79,8 @@ class MyApp extends StatelessWidget {
          GetPage(name: '/cancelRide', page: () => CancelRide()),
          GetPage(name: '/editProfile', page: () => EditProfileScreen()),
          GetPage(name: '/Driver', page: () => DriverDetailsScreen()),
+        //  GetPage(name: '/feedback', page: () => Feedback()),
+         GetPage(name: '/rating', page: () => RatingScreen()),
          GetPage(name: '/savedPlaces', page: () => SavedPlacesScreen()),
            GetPage(name: '/Payment', page: () => PaymentMethodsScreen()),
            GetPage(name: '/Booking', page: () => CarBookingScreen()),

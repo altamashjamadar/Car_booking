@@ -1,13 +1,17 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'routes.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:kangaroo_customer_app/screen/car_home_page.dart';
+import 'package:kangaroo_customer_app/screen/feedback.dart';
+import 'package:kangaroo_customer_app/screen/rating_screen.dart';
 
 class InprogressRideScreen extends StatefulWidget {
   const InprogressRideScreen({super.key});
+
+  
 
   @override
   State<InprogressRideScreen> createState() => _InprogressRideScreenState();
@@ -17,11 +21,16 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
   final Completer<GoogleMapController> _mapController = Completer();
   final Set<Marker> _markers = {};
   final Set<Polyline> _polylines = {};
-
+  
   @override
-  void initState() {
+    void initState() {
     super.initState();
-    final currentLocation = const LatLng(18.500115, 73.949802);
+ 
+    Future.delayed(const Duration(seconds: 2), () {
+    
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      
+      final currentLocation = const LatLng(18.500115, 73.949802);
     final destination = const LatLng(18.51927, 73.933000);
 
     _markers.addAll([
@@ -30,10 +39,7 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
         position: currentLocation,
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
       ),
-      Marker(
-        markerId: const MarkerId('destination'),
-        position: destination,
-     ),
+      Marker(markerId: const MarkerId('destination'), position: destination),
     ]);
 
     _polylines.add(
@@ -44,7 +50,12 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
         points: [currentLocation, destination],
       ),
     );
-  }
+      Get.to(() => const RatingScreen());
+    });
+  });
+    }
+
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.height;
@@ -69,7 +80,6 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
           ),
         ],
       ),
-
     );
   }
 
@@ -82,7 +92,6 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24),
 
-          
           topRight: Radius.circular(24),
         ),
         boxShadow: [
@@ -107,13 +116,14 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
             ),
           ),
           const SizedBox(height: 12),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
                 'Driver on the way',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              
+
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
@@ -130,7 +140,7 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
               ),
             ],
           ),
-       
+
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,106 +151,122 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
               ),
             ],
           ),
-             const SizedBox(height: 10),
-                 Container(
+          const SizedBox(height: 10),
+          Container(
             decoration: BoxDecoration(
               color: Colors.amber,
               borderRadius: BorderRadius.circular(12),
             ),
             padding: const EdgeInsets.all(16),
-            child: 
-            Row(
+            child: Row(
               children: [
-               Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'MH 12 AZ 0000',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Mike Marco',
-                          style: TextStyle(fontSize: 14, color: Colors.black54),
-                        ),
-                      ],
-                    
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'MH 12 AZ 0000',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
                     ),
-                
+                    SizedBox(height: 4),
+                    Text(
+                      'Mike Marco',
+                      style: TextStyle(fontSize: 14, color: Colors.black54),
+                    ),
+                  ],
+                ),
+
                 SizedBox(width: 90),
-                Card(
-                elevation: 4,
-                shape: const CircleBorder(),
-                clipBehavior: Clip.antiAlias,
-                child: ClipOval(
-                  child: Image.asset(
-                    "assets/user_image.jpeg",
-                    height: 100,
-                    width: 100,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              
-         
-            ],
-          ),
-          ),
-          SizedBox(height: 4,),
-          Container(
-              child:  Row(
-            children: [
-              Material(
-                color: Colors.white,
-                shape: const CircleBorder(),
-                elevation: 2,
-                child: IconButton(
-                  icon: const Icon(Icons.phone),
-                  onPressed: () => print('Call driver'),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Material(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  elevation: 2,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(20),
-                    onTap: () => print('Message driver'),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.message, size: 20),
-                          SizedBox(width: 8),
-                          Text('Message Mike', style: TextStyle(fontSize: 14)),
-                        ],
+                InkWell(
+                  onTap: () {
+                    Get.to(RatingScreen());
+            
+                  },
+                  child: Card(
+                    elevation: 4,
+                    shape: const CircleBorder(),
+                    clipBehavior: Clip.antiAlias,
+                    child: ClipOval(
+                      child: Image.asset(
+                        "assets/user_image.jpeg",
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-       
-            
+          SizedBox(height: 4),
+          Container(
+            child: Row(
+              children: [
+                Material(
+                  color: Colors.white,
+                  shape: const CircleBorder(),
+                  elevation: 2,
+                  child: IconButton(
+                    icon: const Icon(Icons.phone),
+                    onPressed: () => print('Call driver'),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Material(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    elevation: 2,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () => print('Message driver'),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.message, size: 20),
+                            SizedBox(width: 8),
+                            Text(
+                              'Message Mike',
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
 
-        SizedBox(height: 8,),
-        Row(
+          SizedBox(height: 8),
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text('Pickup From', style: TextStyle(fontSize: 12, color: Colors.black54)),
+                    Text(
+                      'Pickup From',
+                      style: TextStyle(fontSize: 12, color: Colors.black54),
+                    ),
                     SizedBox(height: 4),
                     Text(
                       '41th Street, 9th Ave, NY',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
@@ -248,35 +274,34 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.amber,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
                 onPressed: () => print('Trip Details'),
-                child: const Text('Trip Details',style: TextStyle(color: Colors.black),),
+                child: const Text(
+                  'Trip Details',
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ],
           ),
           Divider(),
-          SizedBox(height: 20,),
+          SizedBox(height: 20),
           Column(
             children: [
-                  ElevatedButton(
-              onPressed: () {
-       
-               {
-                
-                  Get.snackbar('Cancelled', 'Ride Cancelled successfully!');
-                  Get.to(CarHomePage());
-                }
-              }, child: Text("Cancel",
-              style: TextStyle(
-                color: Colors.red
-              ),),
-                  ),
-              
+              ElevatedButton(
+                onPressed: () {
+                  {
+                    Get.snackbar('Cancelled', 'Ride Cancelled successfully!');
+                    Get.to(CarHomePage());
+                  }
+                },
+                child: Text("Cancel", style: TextStyle(color: Colors.red)),
+              ),
             ],
-          )
-
-      ],
+          ),
+        ],
       ),
     );
   }
