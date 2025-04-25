@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kangaroo_customer_app/screen/link_device.dart';
 import 'package:kangaroo_customer_app/sign_in_page.dart';
 // import 'package:kangaroo_customer_app/sign_up.dart';
 
@@ -47,6 +48,11 @@ class SettingsScreen extends StatelessWidget {
               //  to Help page
             },
           ),
+          SettingOption(icon: Icons.devices, title: 'Linked Devices', onTap: () {
+            Get.to(
+              LinkDevice()
+            );
+          },),
           const Divider(height: 1),
           // like About, Terms, etc.
           SettingOption(

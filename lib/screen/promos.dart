@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kangaroo_customer_app/UI/custom_Card.dart';
 
 class Promos extends StatelessWidget {
   const Promos({super.key});
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,152 +21,107 @@ class Promos extends StatelessWidget {
             child: Column(
               children: [
                 Divider(),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(
-                    leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20 at checkout."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20 at checkout."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "New here? Hop in and save! 15% off on your first trip with promo NEWKANG.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("New here? Hop in and save! 15% off on your first trip with promo NEWKANG."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Love Kangaroo? Refer a friend and you`ll both get ₹200 ride credit!",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Love Kangaroo? Refer a friend and you’ll both get ₹200 ride credit!"),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Share your code ABC123—every successful friend sign-up earns you free rides.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Share your code ABC123—every successful friend sign-up earns you free rides."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Flash Sale! Get 25% off between 5-8 PM today. Just open the app and tap “Flash Promo!.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Flash Sale! Get 25% off between 5–8 PM today. Just open the app and tap “Flash Promo!"),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(
-                    leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20 at checkout."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "New here? Hop in and save! 15% off on your first trip with promo NEWKANG.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20 at checkout."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Love Kangaroo? Refer a friend and you`ll both get ₹200 ride credit!",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("New here? Hop in and save! 15% off on your first trip with promo NEWKANG."),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Share your code ABC123—every successful friend sign-up earns you free rides.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Love Kangaroo? Refer a friend and you’ll both get ₹200 ride credit!"),
-                    trailing: const Icon(Icons.chevron_right),
+                CustomCard(
+                  leading: Icon(Icons.discount, color: Colors.black),
+                  subtitle: Text(
+                    "Flash Sale! Get 25% off between 5-8 PM today. Just open the app and tap “Flash Promo!.",
                   ),
+                  trailing: Icon(Icons.chevron_right),
                 ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Share your code ABC123—every successful friend sign-up earns you free rides."),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
-                 Card(
-                  color: Colors.amber,
-                  // color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: ListTile(leading:  const Icon(Icons.discount),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                    title: Text(""),
-                    subtitle: Text("Flash Sale! Get 25% off between 5–8 PM today. Just open the app and tap “Flash Promo!"),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),
-                ),
+
+                // customCard(
+                //   "Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20 at checkout.",
+                // ),
+                // customCard(
+                //   "New here? Hop in and save! 15% off on your first trip with promo NEWKANG.",
+                // ),
+                // customCard(
+                //   "Love Kangaroo? Refer a friend and you`ll both get ₹200 ride credit!",
+                // ),
+                // customCard(
+                //   "Share your code ABC123—every successful friend sign-up earns you free rides.",
+                // ),
+                // customCard(
+                //   "Flash Sale! Get 25% off between 5-8 PM today. Just open the app and tap “Flash Promo!.",
+                // ),
+                // customCard(
+                //   "Welcome to Kangaroo Cars! Enjoy 20% OFF your first ride—use code KANGAROO20 at checkout.",
+                // ),
+                // customCard(
+                //   "New here? Hop in and save! 15% off on your first trip with promo NEWKANG.",
+                // ),
+                // customCard(
+                //   "Love Kangaroo? Refer a friend and you'll both get ₹200 ride credit!",
+                // ),
+                // customCard(
+                //   "Share your code ABC123—every successful friend sign-up earns you free rides.",
+                // ),
+                // customCard(
+                //   "Flash Sale! Get 25% off between 5-8 PM today. Just open the app and tap “Flash Promo!.",
+                // ),
               ],
             ),
           ),

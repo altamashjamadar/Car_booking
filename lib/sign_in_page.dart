@@ -198,15 +198,15 @@ class SignInPage extends StatelessWidget {
         elevation: 0,
       ),
       body: Obx(() {
-        // Show loading indicator if needed
+   
         if (authController.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
-        // Main content
+      
         return SingleChildScrollView(
           child: Center(
             child: Container(
-              // White box in the center
+
               width: MediaQuery.of(context).size.width * 0.85,
               margin: const EdgeInsets.only(top: 20, bottom: 20),
               padding: const EdgeInsets.all(20),
@@ -220,7 +220,7 @@ class SignInPage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Mobile Number
+         
                     TextFormField(
                       controller: authController.phoneController,
                       keyboardType: TextInputType.phone,

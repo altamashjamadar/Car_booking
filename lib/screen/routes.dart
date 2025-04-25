@@ -13,7 +13,7 @@ class Routes {
   static const settings = '/SettingsScreen';
   static const login = '/signin';
   static const rides = '/ride';
-  static const promos = '/4';
+  static const promos = '/promos';
   static const rating = '/rating';
   static const feedback = '/feedback';
   static const refers='/referScreen';

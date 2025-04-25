@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kangaroo_customer_app/UI/custom_Card.dart';
 
 class ReferralScreen extends StatelessWidget {
   const ReferralScreen({Key? key}) : super(key: key);
@@ -86,40 +87,52 @@ class ReferralScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 24,),
-              SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFFC107),
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  elevation: 0,
-                ),
-                icon: const Icon(Icons.card_giftcard, color: Colors.black,size: 34,),
-                label: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Invite Friends to Kangaroo',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    Text(
-                      'INVITE',
-                      style: TextStyle(
-                        color: Colors.redAccent,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                onPressed: () {
+              // SizedBox(
+              // width: doubl/e.infinity,
+              // child:
+              // ElevatedButton.icon(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xFFFFC107),
+              //     padding: const EdgeInsets.symmetric(horizontal: 4),
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(12),
+              //     ),
+              //     elevation: 0,
+              //   ),
+              //   icon: const Icon(Icons.card_giftcard, color: Colors.black,size: 34,),
+              //   label: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: const [
+              //       Text(
+              //         'Invite Friends to Kangaroo',
+              //         style: TextStyle(color: Colors.black),
+              //       ),
+              //       Text(
+              //         'INVITE',
+              //         style: TextStyle(
+              //           color: Colors.redAccent,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              //   // onPressed: () {
                
-                },
-              ),
+              //   // },
+              // ),
+            // ),
+            const SizedBox(height: 10,),
+            CustomCard(
+              leading: Icon(Icons.card_giftcard),
+              title: Text("Invite Friends to Kangaroo"),
+              trailing: Text("INVITE",
+              style: TextStyle(
+                color: Colors.redAccent,
+                fontWeight: FontWeight.bold,
+                fontSize: 18
+              ),),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 10,),
              Align(
               alignment: Alignment.centerLeft,
               child: Column(
@@ -138,23 +151,27 @@ class ReferralScreen extends StatelessWidget {
              const SizedBox(
               height: 20,
              ),
-            Container(padding: EdgeInsets.all(8),
-               decoration: BoxDecoration(
-                  color: const Color(0xFFFFC107),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              child: Column(
-                children: [
-                  Container(
-                height: 30,
-                width: double.infinity,
-                child: Text("Share Your Referral Code",
-                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
-                ),
-              Text("Invite your friends via  Whatsapp or a text\n message.",)
-                ],
-              ),
+            // Container(padding: EdgeInsets.all(8),
+            //    decoration: BoxDecoration(
+            //       color: const Color(0xFFFFC107),
+            //       borderRadius: BorderRadius.circular(20),
+            //     ),
+            //   child: Column(
+            //     children: [
+            //       Container(
+            //     height: 30,
+            //     width: double.infinity,
+            //     child: Text("Share Your Referral Code",
+            //     style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+            //     ),
+            //   Text("Invite your friends via  Whatsapp or a text\n message.",)
+            CustomCard(
+              title: Text("Share Your Referral Code",style: TextStyle(fontWeight: FontWeight.bold),),
+              subtitle: Text("Invite your friends via  Whatsapp or a text\n message."),
             ),
+                // ],
+              // ),
+            // ),
                 const Spacer(),
 
             Row(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kangaroo_customer_app/screen/arrived_screen.dart';
 
 import 'package:kangaroo_customer_app/screen/car_home_page.dart';
 import 'package:kangaroo_customer_app/screen/feedback.dart';
@@ -50,7 +51,7 @@ class _InprogressRideScreenState extends State<InprogressRideScreen> {
         points: [currentLocation, destination],
       ),
     );
-      Get.to(() => const RatingScreen());
+      Get.to(() => const ArrivedScreen());
     });
   });
     }

@@ -1,30 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kangaroo_customer_app/UI/custom_Card.dart';
 
 class SavedPlacesScreen extends StatelessWidget {
   SavedPlacesScreen({Key? key}) : super(key: key);
-
-  final List<SavedPlace> savedPlaces = const [
-    SavedPlace(
-      title: 'Home',
-      address: '123, ABC Street, City, Country',
-      icon: Icons.home,
-    ),
-    SavedPlace(
-      title: 'Work',
-      address: '456, DEF Avenue, City, Country',
-      icon: Icons.work,
-    ),
-    SavedPlace(
-      title: 'Gym',
-      address: '789, Fitness Road, City, Country',
-      icon: Icons.fitness_center,
-    ),
-    SavedPlace(
-      title: 'Favorites',
-      address: 'Some Favorite Place, City, Country',
-      icon: Icons.star,
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +13,35 @@ class SavedPlacesScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemCount: savedPlaces.length,
-        itemBuilder: (context, index) {
-          return SavedPlaceCard(place: savedPlaces[index]);
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            CustomCard(
+        title: Text("Home"),
+        subtitle: Text("123, ABC Street, City, Country"),
+        leading: Icon(Icons.home),
+            ),
+            CustomCard(
+        title: Text("Work"),
+        subtitle: Text("456, DEF Avenue, City, Country"),
+        leading: Icon(Icons.work),
+            ),
+            CustomCard(
+        title: Text("Gym"),
+        subtitle: Text("789, Fitness Road, City, Country"),
+        leading: Icon(Icons.fitness_center),
+            ),
+            CustomCard(
+        title: Text("Favorite"),
+        subtitle: Text("Some Favorite Place, City, Country"),
+        leading: Icon(Icons.star),
+            ),
+            
+          ],
+        ),
       ),
-      // Floating action button for adding a new saved place.
+     
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.amber,
         onPressed: () {
@@ -54,54 +53,3 @@ class SavedPlacesScreen extends StatelessWidget {
   }
 }
 
-class SavedPlace {
-  final String title;
-  final String address;
-  final IconData icon;
-
-  const SavedPlace({
-    required this.title,
-    required this.address,
-    required this.icon,
-  });
-}
-
-class SavedPlaceCard extends StatelessWidget {
-  final SavedPlace place;
-
-  const SavedPlaceCard({
-    Key? key,
-    required this.place,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color:Colors.amber,
-      elevation: 2,
-      margin: const EdgeInsets.only(bottom: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: ListTile(
-        leading: Icon(
-          place.icon,
-          size: 32,
-          color: Colors.black54,
-        ),
-        title: Text(
-          place.title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text(
-          place.address,
-          style: const TextStyle(fontSize: 14, color: Colors.black54),
-        ),
-        trailing: const Icon(Icons.chevron_right),
-        onTap: () {
-          // On tap functionality, e.g., navigate to details screen.
-        },
-      ),
-    );
-  }
-}

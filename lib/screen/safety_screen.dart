@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:kangaroo_customer_app/UI/custom_Card.dart';
 
 
 class SafetyScreen extends StatelessWidget {
@@ -97,17 +98,22 @@ class SafetyScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20,),
-              Card(
-                // color: Colors.amber,
-                color: Colors.white,
-                elevation: 2,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                  title: Text("New trusted contacts"),
-                  subtitle: Text("share ride trip details with your loved ones in a single tap"),
-                  trailing: const Icon(Icons.chevron_right),
-                ),
+              // Card(
+              //   // color: Colors.amber,
+              //   color: Colors.white,
+              //   elevation: 2,
+              //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              //   child: ListTile(
+              //     contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              //     title: Text("New trusted contacts"),
+              //     subtitle: Text("share ride trip details with your loved ones in a single tap"),
+              //     trailing: const Icon(Icons.chevron_right),
+              //   ),
+              // )
+              CustomCard(
+                title: Text("New trusted contacts"),
+                subtitle: Text("share ride trip details with your loved ones in a single tap"),
+                trailing: Icon(Icons.chevron_right),
               )
             ],
           ),
