@@ -17,22 +17,22 @@ class SavedPlacesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            CustomCard(
+            GradientTopCard(
         title: Text("Home"),
         subtitle: Text("123, ABC Street, City, Country"),
         leading: Icon(Icons.home),
             ),
-            CustomCard(
+            GradientTopCard(
         title: Text("Work"),
         subtitle: Text("456, DEF Avenue, City, Country"),
         leading: Icon(Icons.work),
             ),
-            CustomCard(
+            GradientTopCard(
         title: Text("Gym"),
         subtitle: Text("789, Fitness Road, City, Country"),
-        leading: Icon(Icons.fitness_center),
+        leading: Icon(Icons.fitness_center), trailing: null,
             ),
-            CustomCard(
+            GradientTopCard(
         title: Text("Favorite"),
         subtitle: Text("Some Favorite Place, City, Country"),
         leading: Icon(Icons.star),

@@ -1,158 +1,69 @@
-// import 'package:flutter/material.dart';
 
-
-// class Ride {
-//   final String rideDate;
-//   final String pickupLocation;
-//   final String dropOffLocation;
-//   final String fare;
-
-//   const Ride({
-//     required this.rideDate,
-//     required this.pickupLocation,
-//     required this.dropOffLocation,
-//     required this.fare,
-//   });
-// }
-
-// const List<Ride> rideHistory = [
-//   Ride(
-//     rideDate: 'Mar 15, 2025',
-//     pickupLocation: 'Hadapsar, Pune',
-//     dropOffLocation: 'Koregaon Park, Pune',
-//     fare: '\$12.50',
-//   ),
-//   Ride(
-//     rideDate: 'Mar 12, 2025',
-//     pickupLocation: 'Wakad, Pune',
-//     dropOffLocation: 'Magarpatta, Pune',
-//     fare: '\$15.75',
-//   ),
-//   Ride(
-//     rideDate: 'Mar 10, 2025',
-//     pickupLocation: 'FC Road, Pune',
-//     dropOffLocation: 'Baner, Pune',
-//     fare: '\$9.25',
-//   ),
-
-// ];
-
-// class YourRidesScreen extends StatefulWidget {
-//   const YourRidesScreen({Key? key}) : super(key: key);
-
-//   @override
-//   State<YourRidesScreen> createState() => _YourRidesScreenState();
-// }
-
-// class _YourRidesScreenState extends State<YourRidesScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//      return Scaffold(
-//       backgroundColor: Colors.white,
-//       appBar: AppBar(
-//         title: const Text('Your Rides'),
-//         centerTitle: true,
-//         backgroundColor: Colors.white,
-//       ),
-//       body: rideHistory.isNotEmpty
-//           ? ListView.builder(
-//               itemCount: rideHistory.length,
-//               itemBuilder: (context, index) {
-//                 final ride = rideHistory[index];
-//                 return RideHistoryCard(ride: ride);
-//               },
-//             )
-//           : const Center(
-//               child: Text('No rides yet'),
-//             ),
-//     );
-//   }
-// }
-
-// class RideHistoryCard extends StatelessWidget {
-//   final Ride ride;
-
-//   const RideHistoryCard({Key? key, required this.ride}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//         elevation: 2,
-//   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-//   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-//   child: Container(
-//     decoration: BoxDecoration(
-//       gradient: LinearGradient(
-//         colors: [const Color.fromARGB(255, 243, 255, 7), Colors.orange],
-//         begin: Alignment.topLeft,
-//         end: Alignment.bottomRight,
-//       ),
-//       borderRadius: BorderRadius.circular(12),
-//     ),
-//       // color: Colors.amber,
-//       // elevation: 2,
-//       // margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-//       // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-//       child: ListTile(
-//         contentPadding: const EdgeInsets.all(16),
-//         leading: const Icon(Icons.directions_car, size: 32, color: Colors.black54),
-//         title: Text(
-//           '${ride.pickupLocation} → ${ride.dropOffLocation}',
-//           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-//         ),
-//         subtitle: Padding(
-//           padding: const EdgeInsets.only(top: 8.0),
-//           child: Text(
-//             ride.rideDate,
-//             style: const TextStyle(fontSize: 14, color: Colors.black54),
-//           ),
-//         ),
-//         trailing: Text(
-//           ride.fare,
-//           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-//         ),
-        
-//       ),
-//     )
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
-import 'package:kangaroo_customer_app/UI/custom_Card.dart';
-
 class Ride {
-  final String rideDate;
+  final String rideType;
+  final String rideId;
+  final String carModel;
+  final int fare;
   final String pickupLocation;
-  final String dropOffLocation;
-  final String fare;
+  final String dropoffLocation;
+  final String pickupTime;
+  final String dropoffTime;
+  final String date;
+  final String status;
 
   const Ride({
-    required this.rideDate,
-    required this.pickupLocation,
-    required this.dropOffLocation,
+    required this.rideType,
+    required this.rideId,
+    required this.carModel,
     required this.fare,
+    required this.pickupLocation,
+    required this.dropoffLocation,
+    required this.pickupTime,
+    required this.dropoffTime,
+    required this.date,
+    required this.status,
   });
 }
 
-const List<Ride> rideHistory = [
+final List<Ride> rideHistory = [
   Ride(
-    rideDate: 'Mar 15, 2025',
-    pickupLocation: 'Hadapsar, Pune',
-    dropOffLocation: 'Koregaon Park, Pune',
-    fare: '\$12.50',
+    rideType: 'Premium Cab Ride',
+    rideId: '81324',
+    carModel: 'Audi R8',
+    fare: 20,
+    pickupLocation: 'RamTekdi',
+    dropoffLocation: 'Railway Station',
+    pickupTime: '11:35',
+    dropoffTime: '13:15',
+    date: '2025-03-04',
+    status: 'Completed',
   ),
   Ride(
-    rideDate: 'Mar 12, 2025',
-    pickupLocation: 'Wakad, Pune',
-    dropOffLocation: 'Magarpatta, Pune',
-    fare: '\$15.75',
+    rideType: 'Premium Cab Ride',
+    rideId: '19870',
+    carModel: 'Audi S5',
+    fare: 20,
+    pickupLocation: 'Magarpatta',
+    dropoffLocation: 'Kondwa',
+    pickupTime: '09:15',
+    dropoffTime: '10:15',
+    date: '2025-04-14',
+    status: 'Cancelled',
   ),
   Ride(
-    rideDate: 'Mar 10, 2025',
-    pickupLocation: 'FC Road, Pune',
-    dropOffLocation: 'Baner, Pune',
-    fare: '\$9.25',
+    rideType: 'Premium Cab Ride',
+    rideId: '20214',
+    carModel: 'Bently',
+    fare: 30,
+    pickupLocation: 'Hadapsar',
+    dropoffLocation: 'Airport',
+    pickupTime: '16:45',
+    dropoffTime: '17:00',
+    date: '2025-02-20',
+    status: 'Completed',
   ),
+
 ];
 
 class YourRidesScreen extends StatelessWidget {
@@ -163,37 +74,195 @@ class YourRidesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Your Rides'),
-        centerTitle: true,
         backgroundColor: Colors.white,
+        leading: const BackButton(color: Colors.black),
+        title: const Text('Your Rides', style: TextStyle(color: Colors.black)),
+        centerTitle: true,
+        elevation: 0,
       ),
-      body: rideHistory.isNotEmpty
-          ? ListView.builder(
-              itemCount: rideHistory.length,
-              itemBuilder: (context, index) {
-                final ride = rideHistory[index];
-                return Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: CustomCard(
-                    leading: const Icon(Icons.directions_car, size: 32, color: Colors.black),
-                    title: Text(
-                      '${ride.pickupLocation} → ${ride.dropOffLocation}',
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                    subtitle: Text(
-                      ride.rideDate,
-                      style: const TextStyle(fontSize: 14, color: Colors.black54),
-                    ),
-                    trailing: Text(
-                      ride.fare,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                   color:  Colors.amber,
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: rideHistory.length,
+        itemBuilder: (context, index) {
+          return RideCard(ride: rideHistory[index]);
+        },
+      ),
+    );
+  }
+}
+
+class RideCard extends StatelessWidget {
+  final Ride ride;
+  static const _accentColor = Color(0xFFFFA000);
+
+  const RideCard({Key? key, required this.ride}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 4,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFFCCFF00), Color(0xFFFF8C00)],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: Row(
+              children: [
+                ClipOval(
+                  child: Image.asset(
+                    'assets/logo.jpeg',
+                    height: 24,
+                    width: 24,
+                    fit: BoxFit.cover,
                   ),
-                );
-              },
-            )
-          : const Center(child: Text('No rides yet')),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    ride.rideType,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Text(
+                  ride.rideId,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const Divider(height: 1),
+
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.directions_car, color: Colors.black54, size: 20),
+                      const SizedBox(width: 8),
+                      Text(
+                        ride.carModel,
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    '\$${ride.fare}',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  children: [
+                    const Icon(Icons.radio_button_checked, size: 20, color: _accentColor),
+                    Container(width: 2, height: 30, color: _accentColor),
+                    const Icon(Icons.location_on, size: 20, color: _accentColor),
+                  ],
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(ride.pickupLocation, style: const TextStyle(fontSize: 15)),
+                      const SizedBox(height: 4),
+                      Text(ride.dropoffLocation, style: const TextStyle(fontSize: 15)),
+                    ],
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(ride.pickupTime, style: TextStyle(fontSize: 14, color: Colors.grey.shade600)),
+                    const SizedBox(height: 16),
+                    Text(ride.dropoffTime, style: TextStyle(fontSize: 14, color: Colors.grey.shade600)),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          Container(
+            decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: Colors.grey.shade300)),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              children: [
+                const Icon(Icons.calendar_today, size: 18, color: Colors.black54),
+                const SizedBox(width: 8),
+                Text(ride.date, style: const TextStyle(fontSize: 14)),
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: _accentColor),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(ride.status, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.black)),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }

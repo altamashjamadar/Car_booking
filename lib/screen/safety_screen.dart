@@ -110,10 +110,10 @@ class SafetyScreen extends StatelessWidget {
               //     trailing: const Icon(Icons.chevron_right),
               //   ),
               // )
-              CustomCard(
+              GradientTopCard(
                 title: Text("New trusted contacts"),
                 subtitle: Text("share ride trip details with your loved ones in a single tap"),
-                trailing: Icon(Icons.chevron_right),
+                trailing: Icon(Icons.chevron_right), leading: Icon(Icons.do_not_touch),
               )
             ],
           ),

@@ -6,7 +6,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kangaroo_customer_app/screen/arrived_screen.dart';
 
 import 'package:kangaroo_customer_app/screen/car_home_page.dart';
-import 'package:kangaroo_customer_app/screen/feedback.dart';
 import 'package:kangaroo_customer_app/screen/rating_screen.dart';
 
 class InprogressRideScreen extends StatefulWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kangaroo_customer_app/screen/car_home_page.dart';
-import 'package:kangaroo_customer_app/sign_in_page.dart';
 
 
 class LinkDevice extends StatefulWidget {
@@ -63,7 +62,7 @@ class _LinkDeviceState extends State<LinkDevice> {
   }
   @override
   Widget build(BuildContext context) {
-      Size size = MediaQuery.of(context).size;
+     // Size size = MediaQuery.of(context).size;
   
 
     return Scaffold(

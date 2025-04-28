@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// import 'package:kangaroo_customer_app/rideCard.dart';
 import 'package:kangaroo_customer_app/screen/all_cars_search.dart';
 import 'package:kangaroo_customer_app/controller/auth_controller.dart';
 import 'package:kangaroo_customer_app/screen/cancel_ride.dart';
@@ -21,6 +22,7 @@ import 'package:kangaroo_customer_app/screen/promos.dart';
 import 'package:kangaroo_customer_app/screen/rating_screen.dart';
 import 'package:kangaroo_customer_app/screen/refferal_screen.dart';
 import 'package:kangaroo_customer_app/screen/rideScreen.dart';
+// import 'package:kangaroo_customer_app/screen/rideScreen.dart';
 import 'package:kangaroo_customer_app/screen/routes.dart';
 import 'package:kangaroo_customer_app/screen/safety_screen.dart';
 import 'package:kangaroo_customer_app/screen/savedPlacesScreen.dart';
@@ -55,6 +57,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/splash',
+      // initialRoute: RideCard(rideType: "Premium Cab Ride", rideId: 81324, carModel: carModel, fare: fare, pickupLocation: pickupLocation, dropoffLocation: dropoffLocation, pickupTime: pickupTime, dropoffTime: dropoffTime, date: date, status: status),
       // initialRoute: '/confirmRide',
       
       getPages: [
@@ -73,6 +76,8 @@ class MyApp extends StatelessWidget {
          GetPage(name: '/car-selection', page: () => CarSelectionScreen()),
          GetPage(name: '/SettingsScreen', page: () => SettingsScreen()),
          GetPage(name: '/ride', page: () => YourRidesScreen()),
+        //  GetPage(name: '/ride', page: () => Ridescreen()),
+        //  GetPage(name: '/ride', page: () => RideCard(rideType: 'Premium cab Rde', rideId: '81324', carModel: 'Audi R8', fare: 20.0, pickupLocation: 'Ram Tekdi', dropoffLocation: 'Railway Station', pickupTime: '11:35', date: '2025-03-04', status: 'completed', dropoffTime: '13:15',)),
          GetPage(name: '/promos', page: () => Promos()),
          GetPage(name: '/confirmRide', page: () => ConfirmRide()),
          GetPage(name: '/inprogressRide', page: () => InprogressRideScreen()),

@@ -122,7 +122,7 @@ class ReferralScreen extends StatelessWidget {
               // ),
             // ),
             const SizedBox(height: 10,),
-            CustomCard(
+            GradientTopCard(
               leading: Icon(Icons.card_giftcard),
               title: Text("Invite Friends to Kangaroo"),
               trailing: Text("INVITE",
@@ -165,7 +165,7 @@ class ReferralScreen extends StatelessWidget {
             //     style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
             //     ),
             //   Text("Invite your friends via  Whatsapp or a text\n message.",)
-            CustomCard(
+            GradientTopCard(
               title: Text("Share Your Referral Code",style: TextStyle(fontWeight: FontWeight.bold),),
               subtitle: Text("Invite your friends via  Whatsapp or a text\n message."),
             ),
